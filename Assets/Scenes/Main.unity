@@ -120,6 +120,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &53835774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53835775}
+  - component: {fileID: 53835776}
+  m_Layer: 0
+  m_Name: Inventory UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &53835775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53835774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1825491550}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &53835776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53835774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e868df142b0497dbeac0d06dba0cc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 78d80be4a8fc6fa42847e3426afd9f62, type: 2}
 --- !u!1 &78884886
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,98 +553,6 @@ Transform:
   m_Father: {fileID: 1825491550}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &859960062
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859960063}
-  - component: {fileID: 859960064}
-  m_Layer: 0
-  m_Name: Inventory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &859960063
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859960062}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1825491550}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &859960064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859960062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626cfda5d860492c92463660c49af257, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - name: Iron
-    amount: 0
-  - name: Tin
-    amount: 0
-  - name: Copper
-    amount: 0
-  - name: Silver
-    amount: 0
-  - name: Gold
-    amount: 0
-  - name: Diamond
-    amount: 0
-  tools:
-  - name: Dull Iron Pickaxe
-    costTypeIndex: 0
-    costAmount: 0
-    maxRadius: 2
-    maxStencils: 1
-  - name: Sharpened Iron Pickaxe
-    costTypeIndex: 0
-    costAmount: 2
-    maxRadius: 3
-    maxStencils: 1
-  - name: Enhanced Iron Pickaxe
-    costTypeIndex: 1
-    costAmount: 5
-    maxRadius: 4
-    maxStencils: 2
-  - name: New Bronze Pickaxe
-    costTypeIndex: 2
-    costAmount: 8
-    maxRadius: 5
-    maxStencils: 2
-  - name: Shiny Silver Pickaxe
-    costTypeIndex: 3
-    costAmount: 7
-    maxRadius: 6
-    maxStencils: 2
-  - name: Super Shiny Pickaxe
-    costTypeIndex: 4
-    costAmount: 10
-    maxRadius: 7
-    maxStencils: 2
-  - name: Classic Diamond Pickaxe
-    costTypeIndex: 5
-    costAmount: 3
-    maxRadius: 8
-    maxStencils: 2
 --- !u!1 &895924851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyText: {fileID: 586528352}
+  inventory: {fileID: 11400000, guid: 78d80be4a8fc6fa42847e3426afd9f62, type: 2}
 --- !u!61 &1453608651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1527,7 +1480,7 @@ Transform:
   - {fileID: 382994129}
   - {fileID: 814023032}
   - {fileID: 78884887}
-  - {fileID: 859960063}
+  - {fileID: 53835775}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Player
 {
-    public class Inventory : MonoBehaviour
+    [CreateAssetMenu(menuName="Player/Inventory", fileName="New Inventory")]
+    public class Inventory : ScriptableObject
     {
         public InventoryItem[] items;
         public Tool[] tools;
@@ -47,17 +48,6 @@ namespace Player
             item.amount -= tool.costAmount;
             toolLevel++;
             return true;
-        }
-        
-        private void OnGUI()
-        {
-            GUILayout.BeginArea(new Rect(4f, Screen.height - 154f, 150f, 150f));
-            foreach (InventoryItem item in items)
-            {
-                GUILayout.Label($"{item.name}: {item.amount}");
-            }
-            
-            GUILayout.EndArea();
         }
     }
 

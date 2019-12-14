@@ -6,13 +6,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Text buyText;
-    
-    private Inventory inventory;
-
-    private void Awake()
-    {
-        inventory = FindObjectOfType<Inventory>();
-    }
+    [SerializeField] private Inventory inventory;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

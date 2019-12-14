@@ -343,7 +343,9 @@ namespace MarchingSquares
                 int i = y * resolution + xStart;
                 for (int x = xStart; x <= xEnd; x++, i++)
                 {
+                    bool prev = voxels[i].state;
                     voxels[i].state = stencil.Apply(x, y, voxels[i].state);
+                    voxels[i].changed = voxels[i].changed || voxels[i].state != prev;
                 }
             }
 

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626cfda5d860492c92463660c49af257, type: 3}
+  m_Name: Inventory
+  m_EditorClassIdentifier: 
+  items:
+  - name: Iron
+    amount: 0
+  - name: Tin
+    amount: 0
+  - name: Copper
+    amount: 0
+  - name: Silver
+    amount: 0
+  - name: Gold
+    amount: 0
+  - name: Diamond
+    amount: 0
+  tools:
+  - name: Dull Iron Pickaxe
+    costTypeIndex: 0
+    costAmount: 0
+    maxRadius: 2
+    maxStencils: 1
+  - name: Sharpened Iron Pickaxe
+    costTypeIndex: 0
+    costAmount: 2
+    maxRadius: 3
+    maxStencils: 1
+  - name: Enhanced Iron Pickaxe
+    costTypeIndex: 1
+    costAmount: 5
+    maxRadius: 4
+    maxStencils: 2
+  - name: New Bronze Pickaxe
+    costTypeIndex: 2
+    costAmount: 5
+    maxRadius: 5
+    maxStencils: 2
+  - name: Shiny Silver Pickaxe
+    costTypeIndex: 3
+    costAmount: 3
+    maxRadius: 6
+    maxStencils: 2
+  - name: Super Shiny Pickaxe
+    costTypeIndex: 4
+    costAmount: 5
+    maxRadius: 7
+    maxStencils: 2
+  - name: Classic Diamond Pickaxe
+    costTypeIndex: 5
+    costAmount: 3
+    maxRadius: 8
+    maxStencils: 2

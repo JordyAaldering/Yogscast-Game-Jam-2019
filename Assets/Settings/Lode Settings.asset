@@ -16,6 +16,6 @@ MonoBehaviour:
   scale: 30
   octaves: 4
   lacunarity: 1.5
-  persistance: 0.5
+  persistance: 0.55
   seed: 0
   offset: {x: 0, y: 0}

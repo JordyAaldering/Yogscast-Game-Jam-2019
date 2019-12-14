@@ -10,7 +10,7 @@ namespace MarchingSquares
     {
         [SerializeField] private int chunkResolution = 2;
         [SerializeField] private int voxelResolution = 8;
-        [SerializeField, Range(0f, 1f)] private float worldHeight = 0.75f;
+        [SerializeField, Range(0f, 2f)] private float worldHeight = 0.75f;
 
         [SerializeField] private TextureData textureData;
         [SerializeField] private PerlinSettings heightSettings;
@@ -57,7 +57,7 @@ namespace MarchingSquares
             float[] heightMap = Perlin.GenerateNoiseMap2D(voxelResolution, heightSettings, x * voxelResolution);
             float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, new Vector2(x * voxelResolution, y * voxelResolution));
             
-            float offset = (y - worldHeight * chunkResolution) * voxelResolution / chunkResolution;
+            float offset = y - worldHeight * voxelResolution;
             
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
             chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));

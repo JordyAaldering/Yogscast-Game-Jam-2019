@@ -26,6 +26,8 @@ namespace MarchingSquares
 
         private int[] rowCacheMax, rowCacheMin;
         private int edgeCacheMin, edgeCacheMax;
+        
+        private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
 
         public void Initialize(int resolution, float size, float offset, float[] heightMap, Color[] colorMap)
         {
@@ -48,7 +50,7 @@ namespace MarchingSquares
             
             GetComponent<MeshFilter>().mesh = mesh;
             Texture tex = TextureGenerator.TextureFromColourMap(colorMap, resolution, resolution);
-            GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", tex);
+            GetComponent<MeshRenderer>().material.SetTexture(BaseMap, tex);
 
             int cacheSize = resolution * 2 + 1;
             rowCacheMax = new int[cacheSize];

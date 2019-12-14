@@ -38,10 +38,10 @@ MonoBehaviour:
     height: 0.831
   - name: Silver
     color: {r: 0.9009434, g: 1, b: 0.9887586, a: 0}
-    height: 0.9
+    height: 0.886
   - name: Gold
     color: {r: 0.9980027, g: 1, b: 0.24056602, a: 0}
-    height: 0.935
+    height: 0.912
   - name: Diamond
     color: {r: 0, g: 0.9083638, b: 1, a: 0}
-    height: 0.959
+    height: 0.936

@@ -280,11 +280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb9418d0cc024695928b083ccdb9813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 4
+  size: 8
   chunkResolution: 4
-  voxelResolution: 8
-  worldHeight: 4
-  perlinSettings: {fileID: 11400000, guid: 66b4b06a52f750e469ed6abcc7aadd0b, type: 2}
+  voxelResolution: 16
+  worldHeight: 2
+  textureData: {fileID: 11400000, guid: 489a710c6f5542d4280381516604bf7a, type: 2}
+  heightSettings: {fileID: 11400000, guid: 66b4b06a52f750e469ed6abcc7aadd0b, type: 2}
+  lodeSettings: {fileID: 11400000, guid: 07b10015959c9e94396b09d89379ece3, type: 2}
   voxelGridPrefab: {fileID: 11400000, guid: 336f31b3fb8e941b398b8a96aae18062, type: 3}
 --- !u!4 &739522319
 Transform:
@@ -487,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179272108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: -10}
+  m_LocalPosition: {x: 0, y: 9.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1815562031}
@@ -687,7 +689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825491544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 382994129}

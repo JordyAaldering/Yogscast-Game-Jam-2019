@@ -10,9 +10,12 @@ namespace MarchingSquares
         [SerializeField] private float size = 2f;
         [SerializeField] private int chunkResolution = 2;
         [SerializeField] private int voxelResolution = 8;
-
         [SerializeField] private float worldHeight = 0.5f;
-        [SerializeField] private PerlinSettings perlinSettings;
+
+        [SerializeField] private TextureData textureData;
+        [SerializeField] private PerlinSettings heightSettings;
+        [SerializeField] private PerlinSettings lodeSettings;
+        
         [SerializeField] private VoxelGrid voxelGridPrefab;
         
         private float chunkSize, voxelSize,halfSize;
@@ -52,11 +55,12 @@ namespace MarchingSquares
 
         private void CreateChunk(int i, int x, int y)
         {
-            float[] terrainMap = Perlin.GenerateNoiseMap2D(voxelResolution, perlinSettings, x * voxelResolution);
-            float xOffset = y * (float) voxelResolution / chunkResolution - worldHeight;
+            float[] heightMap = Perlin.GenerateNoiseMap2D(voxelResolution, heightSettings, x * voxelResolution);
+            float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, new Vector2(x * voxelResolution, y * voxelResolution));
+            float xOffset = (y - worldHeight) * voxelResolution / chunkResolution;
             
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize, xOffset, terrainMap);
+            chunk.Initialize(voxelResolution, chunkSize, xOffset, heightMap, textureData.GenerateColorMap(lodeMap));
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;

@@ -12,11 +12,13 @@ namespace MarchingSquares
     {
         private int resolution;
         private float voxelSize, gridSize;
+        
         private Voxel[] voxels;
 
         private Mesh mesh;
         private readonly List<Vector3> vertices = new List<Vector3>();
         private readonly List<int> triangles = new List<int>();
+        private readonly List<Vector2> uvs = new List<Vector2>();
 
         private Voxel dummyX = new Voxel(), dummyY = new Voxel(), dummyT = new Voxel();
         [HideInInspector] public VoxelGrid neighborX, neighborY, neighborT;
@@ -24,7 +26,7 @@ namespace MarchingSquares
         private int[] rowCacheMax, rowCacheMin;
         private int edgeCacheMin, edgeCacheMax;
 
-        public void Initialize(int resolution, float size, float xOffset, float[] noiseMap)
+        public void Initialize(int resolution, float size, float xOffset, float[] noiseMap, Color[] colorMap)
         {
             this.resolution = resolution;
             gridSize = size;
@@ -42,7 +44,10 @@ namespace MarchingSquares
             }
 
             mesh = new Mesh {name = "Voxel Grid Mesh"};
+            
             GetComponent<MeshFilter>().mesh = mesh;
+            Texture tex = TextureGenerator.TextureFromColourMap(colorMap, resolution, resolution);
+            GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", tex);
 
             int cacheSize = resolution * 2 + 1;
             rowCacheMax = new int[cacheSize];
@@ -61,6 +66,7 @@ namespace MarchingSquares
         {
             vertices.Clear();
             triangles.Clear();
+            uvs.Clear();
             mesh.Clear();
 
             FillFirstRowCache();
@@ -73,6 +79,7 @@ namespace MarchingSquares
 
             mesh.vertices = vertices.ToArray();
             mesh.triangles = triangles.ToArray();
+            mesh.uv = uvs.ToArray();
         }
 
         private void FillFirstRowCache()
@@ -98,6 +105,7 @@ namespace MarchingSquares
             {
                 rowCacheMax[0] = vertices.Count;
                 vertices.Add(voxel.position);
+                uvs.Add(voxel.position / gridSize);
             }
         }
 
@@ -107,12 +115,14 @@ namespace MarchingSquares
             {
                 rowCacheMax[i + 1] = vertices.Count;
                 vertices.Add(new Vector3(xMin.xEdge, xMin.position.y));
+                uvs.Add(new Vector3(xMin.xEdge, xMin.position.y) / gridSize);
             }
 
             if (xMax.state)
             {
                 rowCacheMax[i + 2] = vertices.Count;
                 vertices.Add(xMax.position);
+                uvs.Add(xMax.position / gridSize);
             }
         }
 
@@ -123,6 +133,7 @@ namespace MarchingSquares
             {
                 edgeCacheMax = vertices.Count;
                 vertices.Add(new Vector3(yMin.position.x, yMin.yEdge));
+                uvs.Add(new Vector3(yMin.position.x, yMin.yEdge) / gridSize);
             }
         }
 

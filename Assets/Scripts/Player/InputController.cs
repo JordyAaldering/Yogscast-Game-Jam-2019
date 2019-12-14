@@ -10,16 +10,13 @@ namespace Player
         private float horizontalMove = 0f;
         private bool jump = false;
         
-        private float jumpStartTime;
-        private const float jumpMinTime = 0.2f;
-        
         private CharacterController2D controller;
         private Animator anim;
 
         private void Awake()
         {
             controller = GetComponent<CharacterController2D>();
-            controller.OnLandEvent.AddListener(OnLand);
+            controller.OnLandEvent.AddListener(() => anim.SetTrigger("doLand"));
 
             anim = GetComponentInChildren<Animator>();
         }
@@ -32,8 +29,6 @@ namespace Player
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
-                jumpStartTime = Time.time;
-                
                 anim.SetTrigger("doJump");
             }
 
@@ -52,14 +47,6 @@ namespace Player
         {
             controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
             jump = false;
-        }
-
-        private void OnLand()
-        {
-            if (Time.time - jumpStartTime < jumpMinTime)
-                return;
-            
-            anim.SetTrigger("doLand");
         }
     }
 }

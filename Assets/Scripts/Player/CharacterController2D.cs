@@ -40,7 +40,7 @@ namespace Player
                 if (col.gameObject != gameObject)
                 {
                     isGrounded = true;
-                    if (!wasGrounded)
+                    if (!wasGrounded && rb.velocity.y < 0f)
                         OnLandEvent.Invoke();
                     break;
                 }

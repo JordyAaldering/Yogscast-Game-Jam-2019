@@ -21,8 +21,8 @@ namespace MarchingSquares
         private float chunkSize = 1f, voxelSize, halfSize;
         private VoxelGrid[] chunks;
         
-        private static readonly string[] fillTypeNames = {"Filled", "Empty"};
-        private static readonly string[] radiusNames = {"0", "1", "2", "3", "4", "5"};
+        private static readonly string[] fillTypeNames = {"Empty", "Filled"};
+        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5"};
         private static readonly string[] stencilNames = {"Square", "Circle"};
         private readonly VoxelStencil[] stencils = {new VoxelStencil(), new VoxelStencilCircle()};
         private int fillTypeIndex, radiusIndex, stencilIndex;
@@ -78,21 +78,21 @@ namespace MarchingSquares
             }
         }
 
-        private void Update()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hitInfo))
-                {
-                    if (hitInfo.collider.gameObject == gameObject)
-                    {
-                        EditVoxels(transform.InverseTransformPoint(hitInfo.point));
-                    }
-                }
-            }
-        }
+//        private void Update()
+//        {
+//            if (Input.GetMouseButton(0))
+//            {
+//                if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hitInfo))
+//                {
+//                    if (hitInfo.collider.gameObject == gameObject)
+//                    {
+//                        EditVoxels(transform.InverseTransformPoint(hitInfo.point));
+//                    }
+//                }
+//            }
+//        }
 
-        private void EditVoxels(Vector3 point)
+        public void EditVoxels(Vector3 point)
         {
             int centerX = (int) ((point.x + halfSize) / voxelSize);
             int centerY = (int) ((point.y + halfSize) / voxelSize);
@@ -110,7 +110,7 @@ namespace MarchingSquares
             if (yEnd >= chunkResolution) yEnd = chunkResolution - 1;
 
             VoxelStencil activeStencil = stencils[stencilIndex];
-            activeStencil.Initialize(fillTypeIndex == 0, radiusIndex);
+            activeStencil.Initialize(fillTypeIndex != 0, radiusIndex + 1);
 
             int voxelYOffset = yEnd * voxelResolution;
             for (int y = yEnd; y >= yStart; y--)
@@ -134,7 +134,7 @@ namespace MarchingSquares
             GUILayout.Label("Fill Type");
             fillTypeIndex = GUILayout.SelectionGrid(fillTypeIndex, fillTypeNames, 2);
             GUILayout.Label("Radius");
-            radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames, 6);
+            radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames, 5);
             GUILayout.Label("Stencil");
             stencilIndex = GUILayout.SelectionGrid(stencilIndex, stencilNames, 2);
             GUILayout.EndArea();

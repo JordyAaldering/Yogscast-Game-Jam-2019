@@ -1,9 +1,7 @@
 ﻿#pragma warning disable 0649
 using System.Collections.Generic;
-using System.Linq;
 using MarchingSquares.Stencils;
 using MarchingSquares.Texturing;
-using Noise;
 using Player;
 using UnityEngine;
 
@@ -30,7 +28,8 @@ namespace MarchingSquares
 
         private int[] rowCacheMax, rowCacheMin;
         private int edgeCacheMin, edgeCacheMax;
-        
+
+        private PolygonCollider2D col;
         private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
 
         public void Initialize(int resolution, float size, float offset, float[] heightMap, float[,] noiseMap, Color[] colorMap)
@@ -66,6 +65,8 @@ namespace MarchingSquares
             Texture tex = TextureGenerator.TextureFromColourMap(colorMap, resolution, resolution);
             GetComponent<MeshRenderer>().material.SetTexture(BaseMap, tex);
 
+            col = GetComponent<PolygonCollider2D>();
+            
             int cacheSize = resolution * 2 + 1;
             rowCacheMax = new int[cacheSize];
             rowCacheMin = new int[cacheSize];
@@ -76,7 +77,7 @@ namespace MarchingSquares
         public void Refresh()
         {
             Triangulate();
-            GetComponent<EdgeCollider2D>().points = vertices.Select(v => new Vector2(v.x, v.y)).ToArray();
+            ColliderCreator.ApplyMesh(col, mesh);
         }
 
         private void Triangulate()

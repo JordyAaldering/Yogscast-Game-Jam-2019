@@ -1,4 +1,5 @@
 ﻿#pragma warning disable 0649
+using System.Linq;
 using MarchingSquares.Stencils;
 using MarchingSquares.Texturing;
 using Noise;
@@ -10,7 +11,7 @@ namespace MarchingSquares
     {
         [SerializeField] private int chunkResolution = 2;
         [SerializeField] private int voxelResolution = 8;
-        [SerializeField, Range(0f, 2f)] private float worldHeight = 0.75f;
+        [SerializeField] private float worldHeight = 10f;
 
         [SerializeField] private TextureData textureData;
         [SerializeField] private PerlinSettings heightSettings;
@@ -21,8 +22,8 @@ namespace MarchingSquares
         private float chunkSize = 1f, voxelSize, halfSize;
         private VoxelGrid[] chunks;
         
-        private static readonly string[] fillTypeNames = {"Empty", "Filled"};
-        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5"};
+        private static readonly string[] fillTypeNames = {"Mine", "Build"};
+        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         private static readonly string[] stencilNames = {"Square", "Circle"};
         private readonly VoxelStencil[] stencils = {new VoxelStencil(), new VoxelStencilCircle()};
         private int fillTypeIndex, radiusIndex, stencilIndex;
@@ -124,15 +125,18 @@ namespace MarchingSquares
             }
         }
 
+        public int MaxRadius { get; set; } = 2;
+        public int MaxStencils { get; set; } = 1;
+        
         private void OnGUI()
         {
             GUILayout.BeginArea(new Rect(4f, 4f, 150f, 500f));
             GUILayout.Label("Fill Type");
             fillTypeIndex = GUILayout.SelectionGrid(fillTypeIndex, fillTypeNames, 2);
-            GUILayout.Label("Radius");
-            radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames, 5);
-            GUILayout.Label("Stencil");
-            stencilIndex = GUILayout.SelectionGrid(stencilIndex, stencilNames, 2);
+            GUILayout.Label("Mine Radius");
+            radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames.Take(MaxRadius).ToArray(), MaxRadius);
+            GUILayout.Label("Mine Shape");
+            stencilIndex = GUILayout.SelectionGrid(stencilIndex, stencilNames.Take(MaxStencils).ToArray(), MaxStencils);
             GUILayout.EndArea();
         }
     }

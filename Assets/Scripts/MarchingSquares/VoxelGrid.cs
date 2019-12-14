@@ -10,12 +10,9 @@ namespace MarchingSquares
     [SelectionBase]
     public class VoxelGrid : MonoBehaviour
     {
-        [SerializeField] private GameObject voxelPrefab;
-
         private int resolution;
         private float voxelSize, gridSize;
         private Voxel[] voxels;
-        private Material[] voxelMaterials;
 
         private Mesh mesh;
         private readonly List<Vector3> vertices = new List<Vector3>();
@@ -33,16 +30,14 @@ namespace MarchingSquares
             gridSize = size;
             voxelSize = size / resolution;
 
-            int voxelCount = resolution * resolution;
-            voxels = new Voxel[voxelCount];
-            voxelMaterials = new Material[voxelCount];
-
+            voxels = new Voxel[resolution * resolution];
             for (int i = 0, y = 0; y < resolution; y++)
             {
                 float height = xOffset + (float) y / resolution;
                 for (int x = 0; x < resolution; x++, i++)
                 {
-                    CreateVoxel(i, new Vector2Int(x, y), noiseMap[x] > height);
+                    bool solid = noiseMap[x] > height;
+                    voxels[i] = new Voxel(solid, x, y, voxelSize);
                 }
             }
 
@@ -56,21 +51,9 @@ namespace MarchingSquares
             Refresh();
         }
 
-        private void CreateVoxel(int i, Vector2Int pos, bool solid)
-        {
-            GameObject o = Instantiate(voxelPrefab, transform, true);
-            o.transform.localPosition = new Vector3((pos.x + 0.5f) * voxelSize, (pos.y + 0.5f) * voxelSize, -0.01f);
-            o.transform.localScale = 0.1f * voxelSize * Vector3.one;
-
-            voxels[i] = new Voxel(solid, pos, voxelSize);
-            voxelMaterials[i] = o.GetComponent<MeshRenderer>().material;
-        }
-
         public void Refresh()
         {
-            SetVoxelColors();
             Triangulate();
-
             GetComponent<EdgeCollider2D>().points = vertices.Select(v => new Vector2(v.x, v.y)).ToArray();
         }
 
@@ -325,14 +308,6 @@ namespace MarchingSquares
             triangles.Add(a);
             triangles.Add(d);
             triangles.Add(e);
-        }
-
-        private void SetVoxelColors()
-        {
-            for (int i = 0; i < voxels.Length; i++)
-            {
-                voxelMaterials[i].color = voxels[i].state ? Color.black : Color.white;
-            }
         }
 
         public void Apply(VoxelStencil stencil)

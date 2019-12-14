@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4db6b19f44744b0180ca4a9d72dc99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voxelPrefab: {fileID: 100000, guid: f61bb06abb7f8400290787623f1111dd, type: 3}
   neighborX: {fileID: 0}
   neighborY: {fileID: 0}
   neighborT: {fileID: 0}
@@ -111,6 +110,4 @@ EdgeCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.5, y: 0}
-  - {x: 0.5, y: 0}
+  m_Points: []

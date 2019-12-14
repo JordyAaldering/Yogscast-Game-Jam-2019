@@ -10,12 +10,12 @@ namespace MarchingSquares
 		public Vector2 position;
 		public float xEdge, yEdge;
 
-		public Voxel(bool state, Vector2Int pos, float size)
+		public Voxel(bool state, int x, int y, float size)
 		{
 			this.state = state;
 			
-			position.x = (pos.x + 0.5f) * size;
-			position.y = (pos.y + 0.5f) * size;
+			position.x = (x + 0.5f) * size;
+			position.y = (y + 0.5f) * size;
 
 			xEdge = position.x + size * 0.5f;
 			yEdge = position.y + size * 0.5f;

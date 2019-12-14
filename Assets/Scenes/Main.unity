@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 12
-  chunkResolution: 8
+  chunkResolution: 4
   voxelResolution: 8
   maxFeatureAngle: 135
   maxParallelAngle: 5

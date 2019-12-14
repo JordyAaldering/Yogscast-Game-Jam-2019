@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Noise
+namespace MarchingSquares.Texturing
 {
     [CreateAssetMenu(menuName="Marching Squares/Texture Data", fileName="New Texture Data")]
     public class TextureData : ScriptableObject

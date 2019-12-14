@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Noise
+namespace MarchingSquares.Texturing
 {
     public static class TextureGenerator
     {

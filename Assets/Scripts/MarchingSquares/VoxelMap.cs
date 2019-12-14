@@ -1,5 +1,6 @@
 ﻿#pragma warning disable 0649
 using MarchingSquares.Stencils;
+using MarchingSquares.Texturing;
 using Noise;
 using UnityEngine;
 

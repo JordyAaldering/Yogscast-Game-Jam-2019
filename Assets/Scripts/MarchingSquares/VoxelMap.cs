@@ -52,11 +52,11 @@ namespace MarchingSquares
 
         private void CreateChunk(int i, int x, int y)
         {
-            float[] noiseMap = Perlin.GenerateNoiseMap2D(voxelResolution, perlinSettings, x * voxelResolution);
+            float[] terrainMap = Perlin.GenerateNoiseMap2D(voxelResolution, perlinSettings, x * voxelResolution);
             float xOffset = y * (float) voxelResolution / chunkResolution - worldHeight;
             
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize, xOffset, noiseMap);
+            chunk.Initialize(voxelResolution, chunkSize, xOffset, terrainMap);
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;

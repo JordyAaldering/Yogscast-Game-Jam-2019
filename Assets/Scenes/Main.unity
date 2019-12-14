@@ -144,41 +144,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78884886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1825491550}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &112811339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 112811340}
-  m_Layer: 0
-  m_Name: Ceiling Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &112811340
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112811339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1825491550}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382994126
 GameObject:
@@ -586,7 +556,7 @@ GameObject:
   - component: {fileID: 1825491545}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,19 +573,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92b96a52f9b4af4dbf0a7f28aff76d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 400
-  crouchSpeed: 0.36
+  jumpForce: 200
   movementSmoothing: 0.05
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 78884887}
-  ceilingCheck: {fileID: 112811340}
-  crouchDisableCollider: {fileID: 1825491548}
   OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1825491546
@@ -630,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ead7dc46c44985b9ba758878c7e9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 40
+  runSpeed: 15
 --- !u!58 &1825491547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -707,7 +671,6 @@ Transform:
   m_Children:
   - {fileID: 382994129}
   - {fileID: 78884887}
-  - {fileID: 112811340}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

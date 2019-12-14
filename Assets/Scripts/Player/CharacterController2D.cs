@@ -8,24 +8,17 @@ namespace Player
     public class CharacterController2D : MonoBehaviour
     {
         [SerializeField] private float jumpForce = 400f;
-        [SerializeField, Range(0, 1)] private float crouchSpeed = 0.36f;
-        [SerializeField, Range(0, .3f)] private float movementSmoothing = 0.05f;
+        [SerializeField, Range(0f, 0.3f)] private float movementSmoothing = 0.05f;
 
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Transform groundCheck;
-        [SerializeField] private Transform ceilingCheck;
-        [SerializeField] private Collider2D crouchDisableCollider;
 
         private bool isGrounded;
-        private const float groundedRadius = 0.2f;
-        private const float ceilingRadius = 0.2f;
+        private const float groundedRadius = 0.1f;
         private Vector3 velocity = Vector3.zero;
         
-        [Header("Events"), Space] public UnityEvent OnLandEvent;
-        [System.Serializable] public class BoolEvent : UnityEvent<bool> { }
+        [Space] public UnityEvent OnLandEvent;
         
-        public BoolEvent OnCrouchEvent;
-        private bool wasCrouching = false;
         private Rigidbody2D rb;
 
         private void Awake()
@@ -34,9 +27,6 @@ namespace Player
 
             if (OnLandEvent == null)
                 OnLandEvent = new UnityEvent();
-
-            if (OnCrouchEvent == null)
-                OnCrouchEvent = new BoolEvent();
         }
 
         private void FixedUpdate()
@@ -52,45 +42,13 @@ namespace Player
                     isGrounded = true;
                     if (!wasGrounded)
                         OnLandEvent.Invoke();
+                    break;
                 }
             }
         }
         
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, bool jump)
         {
-            if (!crouch)
-            {
-                if (Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround))
-                {
-                    crouch = true;
-                }
-            }
-
-            if (crouch)
-            {
-                if (!wasCrouching)
-                {
-                    wasCrouching = true;
-                    OnCrouchEvent.Invoke(true);
-                }
-
-                move *= crouchSpeed;
-
-                if (crouchDisableCollider != null)
-                    crouchDisableCollider.enabled = false;
-            }
-            else
-            {
-                if (crouchDisableCollider != null)
-                    crouchDisableCollider.enabled = true;
-
-                if (wasCrouching)
-                {
-                    wasCrouching = false;
-                    OnCrouchEvent.Invoke(false);
-                }
-            }
-
             Vector3 vel = rb.velocity;
             Vector3 targetVelocity = new Vector2(move * 10f, vel.y);
             rb.velocity = Vector3.SmoothDamp(vel, targetVelocity, ref velocity, movementSmoothing);

@@ -368,7 +368,7 @@ TextureImporter:
       name: Idle R1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 480
         width: 32
         height: 32
@@ -473,8 +473,8 @@ TextureImporter:
       name: Walk R1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
+        x: 1
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -495,7 +495,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -516,7 +516,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -537,7 +537,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 115
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -558,7 +558,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 153
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -579,7 +579,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 191
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -600,7 +600,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 229
-        y: 448
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -620,8 +620,8 @@ TextureImporter:
       name: Walk R8
       rect:
         serializedVersion: 2
-        x: 266
-        y: 448
+        x: 267
+        y: 447
         width: 32
         height: 32
       alignment: 0
@@ -641,8 +641,8 @@ TextureImporter:
       name: Mine R1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 416
+        x: 1
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -663,7 +663,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 416
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -684,7 +684,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 77
-        y: 416
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -705,7 +705,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 115
-        y: 416
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -725,8 +725,8 @@ TextureImporter:
       name: Mine R5
       rect:
         serializedVersion: 2
-        x: 153
-        y: 416
+        x: 154
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -746,8 +746,8 @@ TextureImporter:
       name: Mine R6
       rect:
         serializedVersion: 2
-        x: 191
-        y: 416
+        x: 192
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -768,7 +768,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 229
-        y: 416
+        y: 415
         width: 32
         height: 32
       alignment: 0
@@ -788,7 +788,7 @@ TextureImporter:
       name: Attack R1
       rect:
         serializedVersion: 2
-        x: 3
+        x: 1
         y: 382
         width: 34
         height: 32
@@ -809,7 +809,7 @@ TextureImporter:
       name: Attack R2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 37
         y: 382
         width: 34
         height: 32
@@ -830,7 +830,7 @@ TextureImporter:
       name: Attack R3
       rect:
         serializedVersion: 2
-        x: 79
+        x: 75
         y: 382
         width: 34
         height: 32
@@ -851,7 +851,7 @@ TextureImporter:
       name: Attack R4
       rect:
         serializedVersion: 2
-        x: 116
+        x: 113
         y: 382
         width: 34
         height: 32
@@ -872,7 +872,7 @@ TextureImporter:
       name: Attack R5
       rect:
         serializedVersion: 2
-        x: 153
+        x: 151
         y: 382
         width: 34
         height: 32
@@ -893,7 +893,7 @@ TextureImporter:
       name: Attack R6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 189
         y: 382
         width: 34
         height: 32
@@ -956,7 +956,7 @@ TextureImporter:
       name: Jump R3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 77
         y: 318
         width: 32
         height: 32
@@ -977,7 +977,7 @@ TextureImporter:
       name: Jump R4
       rect:
         serializedVersion: 2
-        x: 117
+        x: 116
         y: 318
         width: 32
         height: 32
@@ -1082,7 +1082,7 @@ TextureImporter:
       name: Hurt R4
       rect:
         serializedVersion: 2
-        x: 117
+        x: 116
         y: 286
         width: 32
         height: 32
@@ -1271,7 +1271,7 @@ TextureImporter:
       name: Idle L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 38
         y: 222
         width: 32
         height: 32
@@ -1292,7 +1292,7 @@ TextureImporter:
       name: Idle L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 76
         y: 222
         width: 32
         height: 32
@@ -1313,7 +1313,7 @@ TextureImporter:
       name: Idle L4
       rect:
         serializedVersion: 2
-        x: 110
+        x: 114
         y: 222
         width: 32
         height: 32
@@ -1334,7 +1334,7 @@ TextureImporter:
       name: Idle L5
       rect:
         serializedVersion: 2
-        x: 150
+        x: 152
         y: 222
         width: 32
         height: 32
@@ -1376,7 +1376,7 @@ TextureImporter:
       name: Walk L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 38
         y: 190
         width: 32
         height: 32
@@ -1397,7 +1397,7 @@ TextureImporter:
       name: Walk L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 76
         y: 190
         width: 32
         height: 32
@@ -1418,7 +1418,7 @@ TextureImporter:
       name: Walk L4
       rect:
         serializedVersion: 2
-        x: 110
+        x: 114
         y: 190
         width: 32
         height: 32
@@ -1439,7 +1439,7 @@ TextureImporter:
       name: Walk L5
       rect:
         serializedVersion: 2
-        x: 150
+        x: 152
         y: 190
         width: 32
         height: 32
@@ -1460,7 +1460,7 @@ TextureImporter:
       name: Walk L6
       rect:
         serializedVersion: 2
-        x: 189
+        x: 190
         y: 190
         width: 32
         height: 32
@@ -1481,8 +1481,8 @@ TextureImporter:
       name: Walk L7
       rect:
         serializedVersion: 2
-        x: 231
-        y: 193
+        x: 228
+        y: 190
         width: 32
         height: 32
       alignment: 0
@@ -1502,8 +1502,8 @@ TextureImporter:
       name: Walk L8
       rect:
         serializedVersion: 2
-        x: 268
-        y: 193
+        x: 266
+        y: 190
         width: 32
         height: 32
       alignment: 0
@@ -1544,7 +1544,7 @@ TextureImporter:
       name: Mine L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 37
         y: 158
         width: 32
         height: 32
@@ -1565,7 +1565,7 @@ TextureImporter:
       name: Mine L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 76
         y: 158
         width: 32
         height: 32
@@ -1586,7 +1586,7 @@ TextureImporter:
       name: Mine L4
       rect:
         serializedVersion: 2
-        x: 110
+        x: 113
         y: 158
         width: 32
         height: 32
@@ -1607,7 +1607,7 @@ TextureImporter:
       name: Mine L5
       rect:
         serializedVersion: 2
-        x: 150
+        x: 151
         y: 158
         width: 32
         height: 32
@@ -1691,7 +1691,7 @@ TextureImporter:
       name: Attack L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 36
         y: 126
         width: 34
         height: 32
@@ -1712,7 +1712,7 @@ TextureImporter:
       name: Attack L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 74
         y: 126
         width: 34
         height: 32
@@ -1733,7 +1733,7 @@ TextureImporter:
       name: Attack L4
       rect:
         serializedVersion: 2
-        x: 110
+        x: 112
         y: 126
         width: 34
         height: 32
@@ -1775,7 +1775,7 @@ TextureImporter:
       name: Attack L6
       rect:
         serializedVersion: 2
-        x: 189
+        x: 188
         y: 126
         width: 34
         height: 32
@@ -1817,7 +1817,7 @@ TextureImporter:
       name: Jump L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 38
         y: 64
         width: 32
         height: 32
@@ -1838,7 +1838,7 @@ TextureImporter:
       name: Jump L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 77
         y: 64
         width: 32
         height: 32
@@ -1859,7 +1859,7 @@ TextureImporter:
       name: Jump L4
       rect:
         serializedVersion: 2
-        x: 111
+        x: 114
         y: 64
         width: 32
         height: 32
@@ -1880,7 +1880,7 @@ TextureImporter:
       name: Jump L5
       rect:
         serializedVersion: 2
-        x: 148
+        x: 152
         y: 64
         width: 32
         height: 32
@@ -1922,7 +1922,7 @@ TextureImporter:
       name: Hurt L2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 38
         y: 32
         width: 32
         height: 32
@@ -1943,7 +1943,7 @@ TextureImporter:
       name: Hurt L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 76
         y: 32
         width: 32
         height: 32
@@ -1964,7 +1964,7 @@ TextureImporter:
       name: Hurt L4
       rect:
         serializedVersion: 2
-        x: 111
+        x: 114
         y: 32
         width: 32
         height: 32
@@ -2006,7 +2006,7 @@ TextureImporter:
       name: Die L2
       rect:
         serializedVersion: 2
-        x: 36
+        x: 37
         y: 0
         width: 32
         height: 32
@@ -2027,7 +2027,7 @@ TextureImporter:
       name: Die L3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 75
         y: 0
         width: 32
         height: 32
@@ -2048,7 +2048,7 @@ TextureImporter:
       name: Die L4
       rect:
         serializedVersion: 2
-        x: 108
+        x: 111
         y: 0
         width: 32
         height: 32
@@ -2069,7 +2069,7 @@ TextureImporter:
       name: Die L5
       rect:
         serializedVersion: 2
-        x: 148
+        x: 147
         y: 0
         width: 32
         height: 32
@@ -2090,7 +2090,7 @@ TextureImporter:
       name: Die L6
       rect:
         serializedVersion: 2
-        x: 185
+        x: 184
         y: 0
         width: 32
         height: 32
@@ -2137,7 +2137,7 @@ TextureImporter:
         width: 1
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

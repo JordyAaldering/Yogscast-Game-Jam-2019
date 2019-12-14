@@ -34,13 +34,9 @@ namespace Player
 
             if (Input.GetButtonDown("Mine"))
                 anim.SetTrigger("doMine");
-            else if (Input.GetButtonUp("Mine"))
-                anim.SetTrigger("stopMine");
             
             if (Input.GetButtonDown("Attack"))
                 anim.SetTrigger("doAttack");
-            else if (Input.GetButtonUp("Attack"))
-                anim.SetTrigger("stopAttack");
         }
 
         private void FixedUpdate()

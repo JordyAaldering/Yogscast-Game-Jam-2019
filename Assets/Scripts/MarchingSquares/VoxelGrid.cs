@@ -1,5 +1,6 @@
 ﻿#pragma warning disable 0649
 using System.Collections.Generic;
+using System.Linq;
 using MarchingSquares.Stencils;
 using Noise;
 using UnityEngine;
@@ -69,6 +70,8 @@ namespace MarchingSquares
         {
             SetVoxelColors();
             Triangulate();
+
+            GetComponent<EdgeCollider2D>().points = vertices.Select(v => new Vector2(v.x, v.y)).ToArray();
         }
 
         private void Triangulate()

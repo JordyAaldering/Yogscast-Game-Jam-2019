@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: -9095259741613399024}
   m_Layer: 0
   m_Name: Voxel Grid
   m_TagString: Untagged
@@ -45,11 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4db6b19f44744b0180ca4a9d72dc99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 8
   voxelPrefab: {fileID: 100000, guid: f61bb06abb7f8400290787623f1111dd, type: 3}
-  xNeighbor: {fileID: 0}
-  yNeighbor: {fileID: 0}
-  xyNeighbor: {fileID: 0}
+  neighborX: {fileID: 0}
+  neighborY: {fileID: 0}
+  neighborT: {fileID: 0}
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,3 +96,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!68 &-9095259741613399024
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}

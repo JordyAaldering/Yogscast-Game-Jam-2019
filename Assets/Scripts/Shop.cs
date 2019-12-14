@@ -1,11 +1,12 @@
 ﻿#pragma warning disable 0649
 using Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private Text buyText;
+    [SerializeField] private TextMeshProUGUI buyText;
     [SerializeField] private Inventory inventory;
 
     private bool buy;

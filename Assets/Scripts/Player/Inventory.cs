@@ -23,6 +23,11 @@ namespace Player
             }
         }
 
+        public void Add(int index)
+        {
+            items[index].amount++;
+        }
+
         public string GetBuyText()
         {
             if (toolLevel + 1 >= tools.Length)

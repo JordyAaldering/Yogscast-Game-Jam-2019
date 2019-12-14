@@ -4,6 +4,7 @@ using System.Linq;
 using MarchingSquares.Stencils;
 using MarchingSquares.Texturing;
 using Noise;
+using Player;
 using UnityEngine;
 
 namespace MarchingSquares
@@ -11,6 +12,9 @@ namespace MarchingSquares
     [SelectionBase]
     public class VoxelGrid : MonoBehaviour
     {
+        [SerializeField] private Inventory inventory;
+        [SerializeField] private TextureData textureData;
+        
         private int resolution;
         private float voxelSize, gridSize;
         
@@ -29,7 +33,7 @@ namespace MarchingSquares
         
         private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
 
-        public void Initialize(int resolution, float size, float offset, float[] heightMap, Color[] colorMap)
+        public void Initialize(int resolution, float size, float offset, float[] heightMap, float[,] noiseMap, Color[] colorMap)
         {
             this.resolution = resolution;
             gridSize = size;
@@ -42,7 +46,17 @@ namespace MarchingSquares
                 for (int x = 0; x < resolution; x++, i++)
                 {
                     bool solid = heightMap[x] > height;
-                    voxels[i] = new Voxel(solid, x, y, voxelSize);
+                    int blockIndex = 0;
+                    for (; blockIndex < textureData.layers.Length; blockIndex++)
+                    {
+                        if (noiseMap[x, y] <= textureData.layers[blockIndex].height)
+                        {
+                            blockIndex++;
+                            break;
+                        }
+                    }
+                    
+                    voxels[i] = new Voxel(solid, blockIndex, x, y, voxelSize);
                 }
             }
 
@@ -338,11 +352,17 @@ namespace MarchingSquares
             int yEnd = stencil.YEnd;
             if (yEnd >= resolution) yEnd = resolution - 1;
 
+            const int nonOreLayers = 3;
             for (int y = yStart; y <= yEnd; y++)
             {
                 int i = y * resolution + xStart;
                 for (int x = xStart; x <= xEnd; x++, i++)
                 {
+                    if (!voxels[i].changed && voxels[i].value >= nonOreLayers)
+                    {
+                        inventory.Add(voxels[i].value - nonOreLayers);
+                    }
+
                     bool prev = voxels[i].state;
                     voxels[i].state = stencil.Apply(x, y, voxels[i].state);
                     voxels[i].changed = voxels[i].changed || voxels[i].state != prev;

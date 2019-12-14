@@ -8,7 +8,7 @@ namespace MarchingSquares.Texturing
     {
         [SerializeField] private Layer topLayer;
         [SerializeField, Range(0f, 1f)] private float topLayerSize = 0.5f;
-        [SerializeField] private Layer[] layers;
+        public Layer[] layers;
         
         public Color[] GenerateColorMap(float[] heightMap, float[,] noiseMap, float startHeight, float totalHeight)
         {

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4db6b19f44744b0180ca4a9d72dc99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 78d80be4a8fc6fa42847e3426afd9f62, type: 2}
+  textureData: {fileID: 11400000, guid: 489a710c6f5542d4280381516604bf7a, type: 2}
   neighborX: {fileID: 0}
   neighborY: {fileID: 0}
   neighborT: {fileID: 0}

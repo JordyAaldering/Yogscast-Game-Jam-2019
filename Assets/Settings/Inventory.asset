@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Iron
-    amount: 0
+    amount: 108
   - name: Tin
-    amount: 0
+    amount: 127
   - name: Copper
     amount: 0
   - name: Silver
@@ -33,27 +33,27 @@ MonoBehaviour:
     maxStencils: 1
   - name: Sharpened Iron Pickaxe
     costTypeIndex: 0
-    costAmount: 2
+    costAmount: 25
     maxRadius: 3
     maxStencils: 1
   - name: Enhanced Iron Pickaxe
     costTypeIndex: 1
-    costAmount: 5
+    costAmount: 50
     maxRadius: 4
     maxStencils: 2
   - name: New Bronze Pickaxe
     costTypeIndex: 2
-    costAmount: 5
+    costAmount: 60
     maxRadius: 5
     maxStencils: 2
   - name: Shiny Silver Pickaxe
     costTypeIndex: 3
-    costAmount: 3
+    costAmount: 40
     maxRadius: 6
     maxStencils: 2
   - name: Super Shiny Pickaxe
     costTypeIndex: 4
-    costAmount: 5
+    costAmount: 45
     maxRadius: 7
     maxStencils: 2
   - name: Classic Diamond Pickaxe

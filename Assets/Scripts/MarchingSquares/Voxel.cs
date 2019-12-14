@@ -8,13 +8,15 @@ namespace MarchingSquares
 	{
 		public bool state;
 		public bool changed;
+		public readonly int value;
 		
 		public Vector2 position;
 		public float xEdge, yEdge;
 
-		public Voxel(bool state, int x, int y, float size)
+		public Voxel(bool state, int value, int x, int y, float size)
 		{
 			this.state = state;
+			this.value = value;
 			
 			position.x = (x + 0.5f) * size;
 			position.y = (y + 0.5f) * size;

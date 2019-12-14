@@ -61,7 +61,7 @@ namespace MarchingSquares
             float offset = y - worldHeight * voxelResolution;
             
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
+            chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, lodeMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;

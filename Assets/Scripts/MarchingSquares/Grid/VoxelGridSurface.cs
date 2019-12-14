@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MarchingSquares.Voxels;
 using UnityEngine;
 
 namespace MarchingSquares.Grid
 {
+    [RequireComponent(typeof(MeshFilter)), RequireComponent(typeof(PolygonCollider2D))]
     public class VoxelGridSurface : MonoBehaviour
     {
         private Mesh mesh;
@@ -15,13 +17,16 @@ namespace MarchingSquares.Grid
         private int yEdgeMin, yEdgeMax;
         
         private Voxel dummyX, dummyY, dummyT;
+        private PolygonCollider2D col;
 
         public void Initialize(int resolution, Material material)
         {
             GetComponent<MeshRenderer>().material = material;
-            mesh = GetComponent<MeshFilter>().mesh = new Mesh();
+            mesh = new Mesh {name = "Voxel Grid Surface Mesh"};
+
+            GetComponent<MeshFilter>().mesh = mesh;
+            col = GetComponent<PolygonCollider2D>();
             
-            mesh.name = "Voxel Grid Surface Mesh";
             vertices = new List<Vector3>();
             triangles = new List<int>();
             
@@ -42,6 +47,8 @@ namespace MarchingSquares.Grid
         {
             mesh.vertices = vertices.ToArray();
             mesh.triangles = triangles.ToArray();
+            
+            col.SetPath(0, mesh.vertices.Select(v => new Vector2(v.x, v.y)).ToList());
         }
 
         public void CacheFirstCorner(Voxel voxel)

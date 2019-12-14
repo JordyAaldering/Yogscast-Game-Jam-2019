@@ -8,6 +8,14 @@ public class Shop : MonoBehaviour
     [SerializeField] private Text buyText;
     [SerializeField] private Inventory inventory;
 
+    private bool buy;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Submit"))
+            buy = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         buyText.text = inventory.GetBuyText();
@@ -16,12 +24,10 @@ public class Shop : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetButtonDown("Submit"))
+        if (buy && inventory.TryBuy())
         {
-            if (inventory.TryBuy())
-            {
-                buyText.text = inventory.GetBuyText();
-            }
+            buyText.text = inventory.GetBuyText();
+            buy = false;
         }
     }
 

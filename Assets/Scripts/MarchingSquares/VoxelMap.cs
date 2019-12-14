@@ -58,6 +58,7 @@ namespace MarchingSquares
             float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, new Vector2(x * voxelResolution, y * voxelResolution));
             
             float offset = (y - worldHeight * chunkResolution) * voxelResolution / chunkResolution;
+            
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
             chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
@@ -78,22 +79,17 @@ namespace MarchingSquares
             }
         }
 
-//        private void Update()
-//        {
-//            if (Input.GetMouseButton(0))
-//            {
-//                if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hitInfo))
-//                {
-//                    if (hitInfo.collider.gameObject == gameObject)
-//                    {
-//                        EditVoxels(transform.InverseTransformPoint(hitInfo.point));
-//                    }
-//                }
-//            }
-//        }
-
         public void EditVoxels(Vector3 point)
         {
+            if (fillTypeIndex == 1)
+            {
+                if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out var hitInfo) && 
+                    hitInfo.collider.gameObject == gameObject)
+                {
+                    point = transform.InverseTransformPoint(hitInfo.point);
+                }
+            }
+            
             int centerX = (int) ((point.x + halfSize) / voxelSize);
             int centerY = (int) ((point.y + halfSize) / voxelSize);
 

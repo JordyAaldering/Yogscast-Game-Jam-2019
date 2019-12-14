@@ -18,12 +18,30 @@ MonoBehaviour:
     height: 1
   topLayerSize: 0.7
   layers:
+  - name: Gravel
+    color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
+    height: 0.25
   - name: Stone 1
-    color: {r: 0.3018868, g: 0.19238399, b: 0.06692773, a: 0}
-    height: 0.33
-  - name: Stone 2
     color: {r: 0.3962264, g: 0.3370048, b: 0.26726592, a: 0}
-    height: 0.66
+    height: 0.5
+  - name: Stone 2
+    color: {r: 0.38679248, g: 0.2984223, b: 0.12589, a: 0}
+    height: 0.5
   - name: Iron
     color: {r: 0.7169812, g: 0.5954146, b: 0.57155573, a: 0}
+    height: 0.82
+  - name: Tin
+    color: {r: 1, g: 0.9639947, b: 0.759434, a: 0}
+    height: 0.86
+  - name: Copper
+    color: {r: 0.6886792, g: 0.286559, b: 0.055224285, a: 0}
+    height: 0.9
+  - name: Silver
+    color: {r: 0.9009434, g: 1, b: 0.9887586, a: 0}
+    height: 0.95
+  - name: Gold
+    color: {r: 0.9980027, g: 1, b: 0.24056602, a: 0}
+    height: 0.98
+  - name: Diamond
+    color: {r: 0, g: 0.9083638, b: 1, a: 0}
     height: 1

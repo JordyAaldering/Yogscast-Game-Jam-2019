@@ -1,5 +1,4 @@
 #pragma warning disable 0649
-using System;
 using UnityEngine;
 
 namespace MarchingSquares.Texturing
@@ -41,7 +40,7 @@ namespace MarchingSquares.Texturing
             return colorMap;
         }
 
-        [Serializable]
+        [System.Serializable]
         public class Layer
         {
             public string name = "Name";

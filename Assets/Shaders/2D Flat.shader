@@ -1,8 +1,12 @@
-﻿Shader "Custom/2D Flat" {
-	Properties {
+﻿Shader "Marching Squares/2D Flat"
+{
+	Properties
+	{
 		_Color ("Color", Color) = (1,1,1,1)
 	}
-	SubShader {
+	
+	SubShader
+	{
 		Tags { "RenderType"="Opaque" }
 		LOD 200
 		
@@ -11,18 +15,23 @@
 		
 		fixed4 _Color;
 
-		struct Input {
+		struct Input
+		{
 			float dummy;
 		};
 		
-		void vert (inout appdata_full v) {
+		void vert (inout appdata_full v)
+		{
 			v.normal = float3(0, 0, -1);
 		}
 
-		void surf (Input IN, inout SurfaceOutput o) {
+		void surf (Input IN, inout SurfaceOutput o)
+		{
 			o.Albedo = _Color.rgb;
 		}
+		
 		ENDCG
-	} 
+	}
+	
 	FallBack "Diffuse"
 }

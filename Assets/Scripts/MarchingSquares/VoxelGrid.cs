@@ -1,6 +1,7 @@
 ﻿#pragma warning disable 0649
 using System.Collections.Generic;
 using MarchingSquares.Stencils;
+using Noise;
 using UnityEngine;
 
 namespace MarchingSquares
@@ -25,7 +26,7 @@ namespace MarchingSquares
         private int[] rowCacheMax, rowCacheMin;
         private int edgeCacheMin, edgeCacheMax;
 
-        public void Initialize(int resolution, float size)
+        public void Initialize(int resolution, float size, float xOffset, float[] noiseMap)
         {
             this.resolution = resolution;
             gridSize = size;
@@ -36,9 +37,12 @@ namespace MarchingSquares
             voxelMaterials = new Material[voxelCount];
 
             for (int i = 0, y = 0; y < resolution; y++)
-            for (int x = 0; x < resolution; x++, i++)
             {
-                CreateVoxel(i, x, y);
+                float height = xOffset + (float) y / resolution;
+                for (int x = 0; x < resolution; x++, i++)
+                {
+                    CreateVoxel(i, new Vector2Int(x, y), noiseMap[x] > height);
+                }
             }
 
             mesh = new Mesh {name = "Voxel Grid Mesh"};
@@ -51,17 +55,17 @@ namespace MarchingSquares
             Refresh();
         }
 
-        private void CreateVoxel(int i, int x, int y)
+        private void CreateVoxel(int i, Vector2Int pos, bool solid)
         {
             GameObject o = Instantiate(voxelPrefab, transform, true);
-            o.transform.localPosition = new Vector3((x + 0.5f) * voxelSize, (y + 0.5f) * voxelSize, -0.01f);
+            o.transform.localPosition = new Vector3((pos.x + 0.5f) * voxelSize, (pos.y + 0.5f) * voxelSize, -0.01f);
             o.transform.localScale = 0.1f * voxelSize * Vector3.one;
-            
+
+            voxels[i] = new Voxel(solid, pos, voxelSize);
             voxelMaterials[i] = o.GetComponent<MeshRenderer>().material;
-            voxels[i] = new Voxel(x, y, voxelSize);
         }
 
-        private void Refresh()
+        public void Refresh()
         {
             SetVoxelColors();
             Triangulate();

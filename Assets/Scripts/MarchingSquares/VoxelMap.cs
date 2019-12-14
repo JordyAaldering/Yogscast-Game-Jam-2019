@@ -1,5 +1,6 @@
 ﻿#pragma warning disable 0649
 using MarchingSquares.Stencils;
+using Noise;
 using UnityEngine;
 
 namespace MarchingSquares
@@ -7,9 +8,11 @@ namespace MarchingSquares
     public class VoxelMap : MonoBehaviour
     {
         [SerializeField] private float size = 2f;
-        [SerializeField] private int voxelResolution = 8;
         [SerializeField] private int chunkResolution = 2;
-        
+        [SerializeField] private int voxelResolution = 8;
+
+        [SerializeField] private float worldHeight = 0.5f;
+        [SerializeField] private PerlinSettings perlinSettings;
         [SerializeField] private VoxelGrid voxelGridPrefab;
         
         private float chunkSize, voxelSize,halfSize;
@@ -35,6 +38,11 @@ namespace MarchingSquares
             {
                 CreateChunk(i, x, y);
             }
+
+            foreach (VoxelGrid chunk in chunks)
+            {
+                chunk.Refresh();
+            }
             
             BoxCollider box = gameObject.AddComponent<BoxCollider>();
             box.size = new Vector3(size, size);
@@ -44,8 +52,11 @@ namespace MarchingSquares
 
         private void CreateChunk(int i, int x, int y)
         {
+            float[] noiseMap = Perlin.GenerateNoiseMap2D(voxelResolution, perlinSettings, x * voxelResolution);
+            float xOffset = y * (float) voxelResolution / chunkResolution - worldHeight;
+            
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize);
+            chunk.Initialize(voxelResolution, chunkSize, xOffset, noiseMap);
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;
@@ -56,6 +67,7 @@ namespace MarchingSquares
             if (y > 0)
             {
                 chunks[i - chunkResolution].neighborY = chunk;
+                
                 if (x > 0)
                 {
                     chunks[i - chunkResolution - 1].neighborT = chunk;

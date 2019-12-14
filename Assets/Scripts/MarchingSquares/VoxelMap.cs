@@ -23,7 +23,7 @@ namespace MarchingSquares
         private VoxelGrid[] chunks;
         
         private static readonly string[] fillTypeNames = {"Mine", "Build"};
-        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5", "6", "7", "8"};
         private static readonly string[] stencilNames = {"Square", "Circle"};
         private readonly VoxelStencil[] stencils = {new VoxelStencil(), new VoxelStencilCircle()};
         private int fillTypeIndex, radiusIndex, stencilIndex;

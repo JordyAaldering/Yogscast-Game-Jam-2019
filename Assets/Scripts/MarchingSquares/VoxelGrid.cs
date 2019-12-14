@@ -27,7 +27,7 @@ namespace MarchingSquares
         private int[] rowCacheMax, rowCacheMin;
         private int edgeCacheMin, edgeCacheMax;
 
-        public void Initialize(int resolution, float size, float xOffset, float[] noiseMap, Color[] colorMap)
+        public void Initialize(int resolution, float size, float offset, float[] heightMap, Color[] colorMap)
         {
             this.resolution = resolution;
             gridSize = size;
@@ -36,10 +36,10 @@ namespace MarchingSquares
             voxels = new Voxel[resolution * resolution];
             for (int i = 0, y = 0; y < resolution; y++)
             {
-                float height = xOffset + (float) y / resolution;
+                float height = offset + (float) y / resolution;
                 for (int x = 0; x < resolution; x++, i++)
                 {
-                    bool solid = noiseMap[x] > height;
+                    bool solid = heightMap[x] > height;
                     voxels[i] = new Voxel(solid, x, y, voxelSize);
                 }
             }

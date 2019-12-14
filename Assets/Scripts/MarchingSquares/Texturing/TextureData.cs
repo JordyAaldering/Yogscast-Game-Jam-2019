@@ -1,3 +1,4 @@
+#pragma warning disable 0649
 using System;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ namespace MarchingSquares.Texturing
     [CreateAssetMenu(menuName="Marching Squares/Texture Data", fileName="New Texture Data")]
     public class TextureData : ScriptableObject
     {
-        public Layer[] layers;
+        [SerializeField] private Layer topLayer;
+        [SerializeField, Range(0f, 1f)] private float topLayerSize = 0.5f;
+        [SerializeField] private Layer[] layers;
         
-        public Color[] GenerateColorMap(float[,] noiseMap)
+        public Color[] GenerateColorMap(float[] heightMap, float[,] noiseMap, float startHeight, float totalHeight)
         {
             int width = noiseMap.GetLength(0);
             int height = noiseMap.GetLength(1);
@@ -17,12 +20,19 @@ namespace MarchingSquares.Texturing
             for (int y = 0; y < height; y++)
             for (int x = 0; x < width; x++)
             {
-                float currentHeight = noiseMap[x, y];
+                float currentHeight = startHeight + y / totalHeight;
+                if (currentHeight > heightMap[x] - topLayerSize)
+                {
+                    colorMap[x + y * width] = topLayer.color;
+                    continue;
+                }
+                
+                float noiseHeight = noiseMap[x, y];
                 foreach (Layer layer in layers)
                 {
-                    if (currentHeight <= layer.height)
+                    if (noiseHeight <= layer.height)
                     {
-                        colorMap[y * width + x] = layer.color;
+                        colorMap[x + y * width] = layer.color;
                         break;
                     }
                 }
@@ -34,8 +44,9 @@ namespace MarchingSquares.Texturing
         [Serializable]
         public class Layer
         {
-            public Color color;
-            [Range(0f, 1f)] public float height = 0f;
+            public string name = "Name";
+            public Color color = Color.magenta;
+            [Range(0f, 1f)] public float height = 1f;
         }
     }
 }

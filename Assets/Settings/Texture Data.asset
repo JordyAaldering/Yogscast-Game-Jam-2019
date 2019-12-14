@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7908601205bc4495b791a5fd39c56f00, type: 3}
   m_Name: Texture Data
   m_EditorClassIdentifier: 
+  topLayer:
+    name: Grass
+    color: {r: 0.01939903, g: 0.6603774, b: 0, a: 1}
+    height: 1
+  topLayerSize: 0.7
   layers:
-  - color: {r: 1, g: 0, b: 0, a: 0}
+  - name: Stone 1
+    color: {r: 0.3018868, g: 0.19238399, b: 0.06692773, a: 0}
     height: 0.33
-  - color: {r: 0, g: 1, b: 0, a: 0}
+  - name: Stone 2
+    color: {r: 0.3962264, g: 0.3370048, b: 0.26726592, a: 0}
     height: 0.66
-  - color: {r: 0, g: 0, b: 1, a: 0}
+  - name: Iron
+    color: {r: 0.7169812, g: 0.5954146, b: 0.57155573, a: 0}
     height: 1

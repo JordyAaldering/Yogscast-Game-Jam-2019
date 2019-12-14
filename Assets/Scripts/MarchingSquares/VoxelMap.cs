@@ -8,10 +8,9 @@ namespace MarchingSquares
 {
     public class VoxelMap : MonoBehaviour
     {
-        [SerializeField] private float size = 2f;
         [SerializeField] private int chunkResolution = 2;
         [SerializeField] private int voxelResolution = 8;
-        [SerializeField] private float worldHeight = 0.5f;
+        [SerializeField, Range(0f, 1f)] private float worldHeight = 0.75f;
 
         [SerializeField] private TextureData textureData;
         [SerializeField] private PerlinSettings heightSettings;
@@ -19,7 +18,7 @@ namespace MarchingSquares
         
         [SerializeField] private VoxelGrid voxelGridPrefab;
         
-        private float chunkSize, voxelSize,halfSize;
+        private float chunkSize = 1f, voxelSize, halfSize;
         private VoxelGrid[] chunks;
         
         private static readonly string[] fillTypeNames = {"Filled", "Empty"};
@@ -32,9 +31,8 @@ namespace MarchingSquares
         
         private void Awake()
         {
-            halfSize = size * 0.5f;
-            chunkSize = size / chunkResolution;
-            voxelSize = chunkSize / voxelResolution;
+            halfSize = chunkResolution * 0.5f;
+            voxelSize = 1f / voxelResolution;
             
             chunks = new VoxelGrid[chunkResolution * chunkResolution];
             for (int i = 0, y = 0; y < chunkResolution; y++)
@@ -49,7 +47,7 @@ namespace MarchingSquares
             }
             
             BoxCollider box = gameObject.AddComponent<BoxCollider>();
-            box.size = new Vector3(size, size);
+            box.size = new Vector3(chunkResolution, chunkResolution);
             
             cam = Camera.main;
         }
@@ -58,10 +56,10 @@ namespace MarchingSquares
         {
             float[] heightMap = Perlin.GenerateNoiseMap2D(voxelResolution, heightSettings, x * voxelResolution);
             float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, new Vector2(x * voxelResolution, y * voxelResolution));
-            float xOffset = (y - worldHeight) * voxelResolution / chunkResolution;
             
+            float offset = (y - worldHeight * chunkResolution) * voxelResolution / chunkResolution;
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize, xOffset, heightMap, textureData.GenerateColorMap(lodeMap));
+            chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;

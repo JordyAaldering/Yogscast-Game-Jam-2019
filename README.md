@@ -8,3 +8,4 @@ Theme: 'Giving'
 
 # Acknowledgements
 * [Dwarf](https://opengameart.org/content/pixel-art-dwarf-sprites)
+* [GUI](https://opengameart.org/content/gui-elements)

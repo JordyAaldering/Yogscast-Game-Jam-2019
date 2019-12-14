@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Iron
-    amount: 108
+    amount: 0
   - name: Tin
-    amount: 127
+    amount: 0
   - name: Copper
     amount: 0
   - name: Silver
@@ -61,3 +61,4 @@ MonoBehaviour:
     costAmount: 3
     maxRadius: 8
     maxStencils: 2
+  _toolLevel: 0

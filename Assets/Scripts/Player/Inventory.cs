@@ -10,7 +10,7 @@ namespace Player
         public InventoryItem[] items;
         public Tool[] tools;
 
-        private int _toolLevel = 0;
+        [SerializeField] private int _toolLevel = 0;
         private int toolLevel
         {
             get => _toolLevel;

@@ -61,4 +61,4 @@ MonoBehaviour:
     costAmount: 3
     maxRadius: 8
     maxStencils: 2
-  _toolLevel: 0
+  _toolLevel: 1

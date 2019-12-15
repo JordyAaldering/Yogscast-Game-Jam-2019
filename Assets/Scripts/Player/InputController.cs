@@ -13,6 +13,7 @@ namespace Player
         [SerializeField] private float mineRange = 0.5f;
         [SerializeField] private Transform origin;
 
+        [SerializeField] private AudioEvent jumpAudioEvent;
         [SerializeField] private AudioEvent attackAudioEvent;
         [SerializeField] private AudioEvent mineAudioEvent;
         
@@ -31,7 +32,7 @@ namespace Player
             voxelMap = FindObjectOfType<VoxelMap>();
             
             controller = GetComponent<CharacterController2D>();
-            controller.OnLandEvent.AddListener(() => anim.SetTrigger("doLand"));
+            controller.OnLandEvent.AddListener(OnLand);
             
             anim = GetComponentInChildren<Animator>();
         }
@@ -45,6 +46,7 @@ namespace Player
             {
                 jump = true;
                 anim.SetTrigger("doJump");
+                jumpAudioEvent.Play(AudioManager.instance.effectSource);
             }
 
             if (Input.GetButtonDown("Mine") && !EventSystem.current.IsPointerOverGameObject() &&
@@ -81,7 +83,7 @@ namespace Player
             jump = false;
         }
         
-        public void Mine()
+        private void Mine()
         {
             Vector2 position = origin.transform.position;
             Vector2 worldMousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -91,12 +93,18 @@ namespace Player
             voxelMap.EditVoxels(position + direction * mineRange);
         }
         
-        public void Attack()
+        private void Attack()
         {
             Vector2 position = origin.transform.position;
             Vector2 worldMousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = worldMousePosition - position;
             direction.Normalize();
+        }
+
+        private void OnLand()
+        {
+            anim.SetTrigger("doLand");
+            jumpAudioEvent.Play(AudioManager.instance.effectSource);
         }
     }
 }

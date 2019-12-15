@@ -17,6 +17,7 @@ namespace MarchingSquares
         [SerializeField] private TextureData textureData;
         [SerializeField] private PerlinSettings heightSettings;
         [SerializeField] private PerlinSettings lodeSettings;
+        [SerializeField] private PerlinSettings caveSettings;
         
         [SerializeField] private VoxelGrid voxelGridPrefab;
 
@@ -61,12 +62,15 @@ namespace MarchingSquares
         private void CreateChunk(int i, int x, int y)
         {
             float[] heightMap = Perlin.GenerateNoiseMap2D(voxelResolution, heightSettings, x * voxelResolution);
-            float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, new Vector2(x * voxelResolution, y * voxelResolution));
+
+            Vector2 sample = new Vector2(x * voxelResolution, y * voxelResolution);
+            float[,] lodeMap = Perlin.GenerateNoiseMap3D(voxelResolution, lodeSettings, sample);
+            float[,] caveMap = Perlin.GenerateNoiseMap3D(voxelResolution, caveSettings, sample);
             
             float offset = y - worldHeight * voxelResolution;
             
             VoxelGrid chunk = Instantiate(voxelGridPrefab, transform, true);
-            chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, lodeMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
+            chunk.Initialize(voxelResolution, chunkSize, offset, heightMap, lodeMap, caveMap, textureData.GenerateColorMap(heightMap, lodeMap, offset, voxelResolution * chunkResolution));
             chunk.transform.localPosition = new Vector3(x * chunkSize - halfSize, y * chunkSize - halfSize);
             
             chunks[i] = chunk;

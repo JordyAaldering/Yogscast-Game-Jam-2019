@@ -60,5 +60,11 @@ namespace MarchingSquares
 			xEdge = voxel.xEdge + offset;
 			yEdge = voxel.yEdge + offset;
 		}
+
+		public void SetCave()
+		{
+			state = false;
+			changed = true;
+		}
 	}
 }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5443d6ace2df0804fb7745eb741cfc2a, type: 3}
-  m_Name: Height Settings
+  m_Name: Noise Cave Settings
   m_EditorClassIdentifier: 
   normalizeMode: 1
-  scale: 30
-  octaves: 4
+  scale: 20
+  octaves: 3
   lacunarity: 1.5
-  persistance: 0.5
+  persistance: 0.8
   seed: 0
-  offset: {x: 0, y: 0}
+  offset: {x: 12.34, y: 65.43}

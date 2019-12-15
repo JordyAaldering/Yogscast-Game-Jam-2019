@@ -12,6 +12,7 @@ namespace MarchingSquares
     [SelectionBase]
     public class VoxelGrid : MonoBehaviour
     {
+        [SerializeField] private float caveChance = 0.8f;
         [SerializeField] private Inventory inventory;
         [SerializeField] private TextureData textureData;
         [SerializeField] private AudioEvent[] oreEffects;
@@ -35,7 +36,7 @@ namespace MarchingSquares
         private PolygonCollider2D col;
         private static readonly int ColorMap = Shader.PropertyToID("_ColorMap");
 
-        public void Initialize(int resolution, float size, float offset, float[] heightMap, float[,] noiseMap, Color[] colorMap)
+        public void Initialize(int resolution, float size, float offset, float[] heightMap, float[,] lodeMap, float[,] caveMap, Color[] colorMap)
         {
             this.resolution = resolution;
             gridSize = size;
@@ -47,11 +48,13 @@ namespace MarchingSquares
                 float height = offset + (float) y / resolution;
                 for (int x = 0; x < resolution; x++, i++)
                 {
+                    float currentHeight = Mathf.Clamp01(lodeMap[x, y]);
                     bool solid = heightMap[x] > height;
                     int blockIndex = 0;
+                    
                     for (; blockIndex < textureData.layers.Length; blockIndex++)
                     {
-                        if (noiseMap[x, y] <= textureData.layers[blockIndex].height)
+                        if (currentHeight <= textureData.layers[blockIndex].height)
                         {
                             blockIndex++;
                             break;
@@ -59,6 +62,11 @@ namespace MarchingSquares
                     }
                     
                     voxels[i] = new Voxel(solid, blockIndex, x, y, voxelSize);
+                    
+                    if (caveMap[x, y] > caveChance)
+                    {
+                        voxels[i].SetCave();
+                    }
                 }
             }
 
@@ -356,7 +364,7 @@ namespace MarchingSquares
             int yEnd = stencil.YEnd;
             if (yEnd >= resolution) yEnd = resolution - 1;
 
-            const int nonOreLayers = 3;
+            const int nonOreLayers = 4;
             for (int y = yStart; y <= yEnd; y++)
             {
                 int i = y * resolution + xStart;

@@ -1,6 +1,6 @@
 #pragma warning disable 0649
-using System;
 using MarchingSquares;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -27,6 +27,7 @@ namespace Player
         public void Add(int index)
         {
             items[index].amount++;
+            CheckComplete();
         }
 
         public string GetBuyText()
@@ -53,7 +54,16 @@ namespace Player
 
             item.amount -= tool.costAmount;
             toolLevel++;
+            
+            CheckComplete();
+            
             return true;
+        }
+
+        private void CheckComplete()
+        {
+            int diamondIndex = items.Length - 1;
+            FindObjectOfType<CompleteGame>().gameObject.SetActive(items[diamondIndex].amount > 0);
         }
     }
 

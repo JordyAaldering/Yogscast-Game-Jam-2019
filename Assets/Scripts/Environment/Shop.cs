@@ -10,16 +10,17 @@ namespace Environment
         [SerializeField] private TextMeshProUGUI buyText;
         [SerializeField] private Inventory inventory;
 
-        private bool buy;
+        private bool inside, buy;
 
         private void Update()
         {
-            if (Input.GetButtonDown("Submit"))
+            if (inside && Input.GetButtonDown("Interact"))
                 buy = true;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            inside = true;
             buyText.text = inventory.GetBuyText();
             buyText.enabled = true;
         }
@@ -35,6 +36,7 @@ namespace Environment
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            inside = false;
             buyText.enabled = false;
         }
     }

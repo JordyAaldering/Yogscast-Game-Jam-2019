@@ -29,6 +29,9 @@ namespace Player
 
         private void Awake()
         {
+            if (!Application.isPlaying)
+                return;
+            
             VoxelMap map = FindObjectOfType<VoxelMap>();
             map.MaxRadius = tools[_toolLevel].maxRadius;
             map.MaxStencils = tools[_toolLevel].maxStencils;

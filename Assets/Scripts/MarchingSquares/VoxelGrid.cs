@@ -31,7 +31,7 @@ namespace MarchingSquares
         private int edgeCacheMin, edgeCacheMax;
 
         private PolygonCollider2D col;
-        private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
+        private static readonly int ColorMap = Shader.PropertyToID("_ColorMap");
 
         public void Initialize(int resolution, float size, float offset, float[] heightMap, float[,] noiseMap, Color[] colorMap)
         {
@@ -64,7 +64,7 @@ namespace MarchingSquares
             
             GetComponent<MeshFilter>().mesh = mesh;
             Texture tex = TextureGenerator.TextureFromColourMap(colorMap, resolution, resolution);
-            GetComponent<MeshRenderer>().material.SetTexture(BaseMap, tex);
+            GetComponent<MeshRenderer>().material.SetTexture(ColorMap, tex);
 
             col = GetComponent<PolygonCollider2D>();
             

@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb9418d0cc024695928b083ccdb9813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkResolution: 1
+  chunkResolution: 4
   voxelResolution: 8
   worldHeight: 7
   textureData: {fileID: 11400000, guid: 489a710c6f5542d4280381516604bf7a, type: 2}

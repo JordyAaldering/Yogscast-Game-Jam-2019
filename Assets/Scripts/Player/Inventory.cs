@@ -39,7 +39,7 @@ namespace Player
 
         public void Add(int index)
         {
-            items[index].amount++;
+            items[Mathf.Clamp(index, 0, items.Length - 1)].amount++;
             CheckComplete();
         }
 

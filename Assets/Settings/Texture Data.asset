@@ -20,25 +20,25 @@ MonoBehaviour:
   layers:
   - name: Grass
     color: {r: 0, g: 0.5283019, b: 0.024083858, a: 0}
-    height: 0.027
+    height: 0.049
   - name: Gravel
     color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
-    height: 0.115
+    height: 0.126
   - name: Stone 1
     color: {r: 0.3962264, g: 0.3370048, b: 0.26726592, a: 0}
-    height: 0.172
+    height: 0.199
   - name: Stone 2
     color: {r: 0.38679248, g: 0.2984223, b: 0.12589, a: 0}
-    height: 0.247
+    height: 0.28
   - name: Iron
     color: {r: 0.7169812, g: 0.5954146, b: 0.57155573, a: 0}
-    height: 0.345
+    height: 0.389
   - name: Tin
     color: {r: 1, g: 0.9639947, b: 0.759434, a: 0}
-    height: 0.41
+    height: 0.421
   - name: Copper
     color: {r: 0.6886792, g: 0.286559, b: 0.055224285, a: 0}
-    height: 0.485
+    height: 0.501
   - name: Silver
     color: {r: 0.9009434, g: 1, b: 0.9887586, a: 0}
     height: 0.591

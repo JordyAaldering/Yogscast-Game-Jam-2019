@@ -27,6 +27,13 @@ namespace Player
         
         public Action OnPurchase = delegate { };
 
+        private void OnEnable()
+        {
+            VoxelMap map = FindObjectOfType<VoxelMap>();
+            map.MaxRadius = tools[_toolLevel].maxRadius;
+            map.MaxStencils = tools[_toolLevel].maxStencils;
+        }
+
         public void Add(int index)
         {
             items[index].amount++;

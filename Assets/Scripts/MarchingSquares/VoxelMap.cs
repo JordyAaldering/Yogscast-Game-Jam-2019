@@ -20,16 +20,16 @@ namespace MarchingSquares
         [SerializeField] private PerlinSettings caveSettings;
         
         [SerializeField] private VoxelGrid voxelGridPrefab;
-
         [SerializeField] private Font textFont;
 
         public Action OnVoxelEdit = delegate { };
-        
-        private float chunkSize = 1f, voxelSize, halfSize;
+
+        private const float chunkSize = 1f;
+        private float voxelSize, halfSize;
         private VoxelGrid[] chunks;
         
         private static readonly string[] fillTypeNames = {"Mine", "Build"};
-        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5", "6", "7", "8"};
+        private static readonly string[] radiusNames = {"1", "2", "3", "4", "5", "6"};
         private static readonly string[] stencilNames = {"Square", "Circle"};
         private readonly VoxelStencil[] stencils = {new VoxelStencil(), new VoxelStencilCircle()};
         private int fillTypeIndex, radiusIndex, stencilIndex;
@@ -138,7 +138,7 @@ namespace MarchingSquares
             OnVoxelEdit();
         }
 
-        public int MaxRadius { get; set; } = 2;
+        public int MaxRadius { get; set; } = 1;
         public int MaxStencils { get; set; } = 1;
         
         private void OnGUI()

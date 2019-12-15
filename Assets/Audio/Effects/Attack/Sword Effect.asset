@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
+  m_Name: Sword Effect
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 447db94cbc419a94f8d4244a32c41f82, type: 3}
+  - {fileID: 8300000, guid: 0197e25811aa4454dbda637360db3d4d, type: 3}
+  - {fileID: 8300000, guid: e776e8b09e5ebcf4096b4c76c21f7713, type: 3}
+  - {fileID: 8300000, guid: d93e041b19ed0914d880c2b99cac2f1a, type: 3}
+  volume:
+    minValue: 0.92549014
+    maxValue: 1
+  pitch:
+    minValue: 0.909804
+    maxValue: 1.1947713

@@ -15,6 +15,7 @@ namespace UI
         private void Awake()
         {
             FindObjectOfType<VoxelMap>().OnVoxelEdit += UpdateText;
+            UpdateText();
         }
         
         private void UpdateText()

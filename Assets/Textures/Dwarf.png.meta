@@ -788,7 +788,7 @@ TextureImporter:
       name: Attack R1
       rect:
         serializedVersion: 2
-        x: 1
+        x: 3
         y: 382
         width: 34
         height: 32
@@ -809,7 +809,7 @@ TextureImporter:
       name: Attack R2
       rect:
         serializedVersion: 2
-        x: 37
+        x: 40
         y: 382
         width: 34
         height: 32
@@ -830,7 +830,7 @@ TextureImporter:
       name: Attack R3
       rect:
         serializedVersion: 2
-        x: 75
+        x: 79
         y: 382
         width: 34
         height: 32
@@ -851,9 +851,9 @@ TextureImporter:
       name: Attack R4
       rect:
         serializedVersion: 2
-        x: 113
+        x: 117
         y: 382
-        width: 34
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -872,9 +872,9 @@ TextureImporter:
       name: Attack R5
       rect:
         serializedVersion: 2
-        x: 151
+        x: 154
         y: 382
-        width: 34
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -893,7 +893,7 @@ TextureImporter:
       name: Attack R6
       rect:
         serializedVersion: 2
-        x: 189
+        x: 191
         y: 382
         width: 34
         height: 32
@@ -1712,7 +1712,7 @@ TextureImporter:
       name: Attack L3
       rect:
         serializedVersion: 2
-        x: 74
+        x: 72
         y: 126
         width: 34
         height: 32

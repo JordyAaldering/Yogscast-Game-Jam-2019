@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] private float mineRange = 0.5f;
         [SerializeField] private Transform origin;
 
+        [SerializeField] private AudioEvent attackAudioEvent;
         [SerializeField] private AudioEvent mineAudioEvent;
         
         private float horizontalMove = 0f;
@@ -60,6 +61,7 @@ namespace Player
             {
                 Attack();
                 anim.SetTrigger("doAttack");
+                attackAudioEvent.Play(AudioManager.instance.effectSource);
             }
         }
 

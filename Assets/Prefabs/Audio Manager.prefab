@@ -444,4 +444,4 @@ MonoBehaviour:
   chantSource: {fileID: 4229820051215290460}
   effectSource: {fileID: 4933821566343091762}
   oreSource: {fileID: 6353426311429320354}
-  chantFadeSpeed: 1
+  chantFadeSpeed: 0.1

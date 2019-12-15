@@ -1,5 +1,6 @@
 #pragma warning disable 0649
 using MarchingSquares;
+using ScriptableAudio;
 using UnityEngine;
 
 namespace Player
@@ -11,6 +12,8 @@ namespace Player
         [SerializeField] private float mineRange = 0.5f;
         [SerializeField] private Transform origin;
 
+        [SerializeField] private AudioEvent mineAudioEvent;
+        
         private float horizontalMove = 0f;
         private bool jump = false;
 
@@ -42,13 +45,18 @@ namespace Player
                 anim.SetTrigger("doJump");
             }
 
-            if (Input.GetButtonDown("Mine"))
+            if (Input.GetButtonDown("Mine") &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Mine L") &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Mine R"))
             {
                 Mine();
                 anim.SetTrigger("doMine");
+                mineAudioEvent.Play(AudioManager.instance.effectSource);
             }
             
-            if (Input.GetButtonDown("Attack"))
+            if (Input.GetButtonDown("Attack") &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Attack L") &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Attack R"))
             {
                 Attack();
                 anim.SetTrigger("doAttack");

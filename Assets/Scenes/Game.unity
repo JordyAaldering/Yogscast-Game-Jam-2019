@@ -2165,6 +2165,7 @@ MonoBehaviour:
   runSpeed: 15
   mineRange: 0.28
   origin: {fileID: 814023032}
+  mineAudioEvent: {fileID: 11400000, guid: eaac7cb31d198bd4b8daf25d2efb26ca, type: 2}
 --- !u!58 &1825491547
 CircleCollider2D:
   m_ObjectHideFlags: 0

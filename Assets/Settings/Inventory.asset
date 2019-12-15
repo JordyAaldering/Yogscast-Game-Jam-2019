@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Iron
-    amount: 1237
+    amount: 0
   - name: Tin
-    amount: 419
+    amount: 0
   - name: Copper
-    amount: 61
+    amount: 0
   - name: Silver
-    amount: 71
+    amount: 0
   - name: Gold
-    amount: 57
+    amount: 0
   - name: Diamond
-    amount: 100
+    amount: 0
   tools:
   - name: Dull Iron Pickaxe
     costTypeIndex: 0
@@ -61,4 +61,4 @@ MonoBehaviour:
     costAmount: 3
     maxRadius: 6
     maxStencils: 2
-  _toolLevel: 6
+  _toolLevel: 0

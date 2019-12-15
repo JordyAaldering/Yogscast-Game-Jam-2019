@@ -9,6 +9,7 @@ Theme: 'Giving'
 # Acknowledgements
 * [Dwarf](https://opengameart.org/content/pixel-art-dwarf-sprites)
 * [Environment](https://opengameart.org/content/overworld-objects)
+* [Background](https://opengameart.org/content/mountain-at-dusk-background)
 * [Music](https://opengameart.org/content/cave-01)
 * [Mine Effects](https://opengameart.org/content/mining-pick)
 * [Attack Effects](https://opengameart.org/content/punches-hits-swords-and-squishes)

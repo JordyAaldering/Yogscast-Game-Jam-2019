@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: 7495676031559135606
     second: UI Button Disabled
+  - first:
+      213: -3442696845978289071
+    second: UI Toggle Off
+  - first:
+      213: 7655792458637410189
+    second: UI Toggle Off Highlight
+  - first:
+      213: 8545511197531012946
+    second: UI Toggle Off Disabled
+  - first:
+      213: 5726556868827172383
+    second: UI Toggle On
+  - first:
+      213: 1925491419742189935
+    second: UI Toggle On Highlight
+  - first:
+      213: 8261821449461571088
+    second: UI Toggle On Disabled
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -229,7 +247,7 @@ TextureImporter:
         width: 285
         height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 35, y: 9, z: 38, w: 8}
       outline: []
       physicsShape: []
@@ -237,6 +255,132 @@ TextureImporter:
       bones: []
       spriteID: 03f013963ac7a9a49a24820bd4602457
       internalID: 7495676031559135606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle Off
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 631
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71ae4b516bbe4b409953b1b90ddf3b1
+      internalID: -3442696845978289071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle Off Highlight
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 631
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e29b6dcde6ad84a9268b32246e7531
+      internalID: 7655792458637410189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle Off Disabled
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 631
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c1bad6ef432e5499a6908c2e2856aa
+      internalID: 8545511197531012946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle On
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 595
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb186130a5d30347b19ac9a76de541f
+      internalID: 5726556868827172383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle On Highlight
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 595
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d99328e8469fe44989d30b43d8e55c
+      internalID: 1925491419742189935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Toggle On Disabled
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 595
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bda0e81aac8774eb623cc8ceecdc8f
+      internalID: 8261821449461571088
       vertices: []
       indices: 
       edges: []

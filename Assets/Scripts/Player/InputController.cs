@@ -2,6 +2,7 @@
 using MarchingSquares;
 using ScriptableAudio;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Player
 {
@@ -40,13 +41,13 @@ namespace Player
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             anim.SetFloat("horizontalMove", horizontalMove);
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0.1f)
             {
                 jump = true;
                 anim.SetTrigger("doJump");
             }
 
-            if (Input.GetButtonDown("Mine") &&
+            if (Input.GetButtonDown("Mine") && !EventSystem.current.IsPointerOverGameObject() &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Mine L") &&
                 !anim.GetCurrentAnimatorStateInfo(0).IsName("Dwarf Mine R"))
             {

@@ -27,7 +27,7 @@ namespace Player
         
         public Action OnPurchase = delegate { };
 
-        private void OnEnable()
+        private void Awake()
         {
             VoxelMap map = FindObjectOfType<VoxelMap>();
             map.MaxRadius = tools[_toolLevel].maxRadius;

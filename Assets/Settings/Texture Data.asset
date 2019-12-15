@@ -29,22 +29,22 @@ MonoBehaviour:
     height: 0.199
   - name: Stone 2
     color: {r: 0.38679248, g: 0.2984223, b: 0.12589, a: 0}
-    height: 0.28
+    height: 0.296
   - name: Iron
     color: {r: 0.7169812, g: 0.5954146, b: 0.57155573, a: 0}
-    height: 0.389
+    height: 0.411
   - name: Tin
     color: {r: 1, g: 0.9639947, b: 0.759434, a: 0}
-    height: 0.421
+    height: 0.454
   - name: Copper
     color: {r: 0.6886792, g: 0.286559, b: 0.055224285, a: 0}
-    height: 0.501
+    height: 0.539
   - name: Silver
     color: {r: 0.9009434, g: 1, b: 0.9887586, a: 0}
-    height: 0.591
+    height: 0.634
   - name: Gold
     color: {r: 0.9980027, g: 1, b: 0.24056602, a: 0}
-    height: 0.67
+    height: 0.73
   - name: Diamond
     color: {r: 0, g: 0.9083638, b: 1, a: 0}
-    height: 0.775
+    height: 0.8

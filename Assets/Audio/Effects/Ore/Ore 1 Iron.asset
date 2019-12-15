@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
-  m_Name: Mine Effect
+  m_Name: Ore 1 Iron
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 179d2373e1de5ce4e8b57823903c40ca, type: 3}
-  - {fileID: 8300000, guid: f168910c7d296574299c20156d81cdb4, type: 3}
-  - {fileID: 8300000, guid: c6db04b316580054ea0285d196f6fe3c, type: 3}
-  - {fileID: 8300000, guid: a2f276bcf2d4c5841ae143a7c10dcdf3, type: 3}
+  - {fileID: 8300000, guid: 25499632745191449b30c4eba10a1688, type: 3}
   volume:
-    minValue: 0.820915
-    maxValue: 0.89542484
+    minValue: 0.22614384
+    maxValue: 0.2732026
   pitch:
-    minValue: 0.909804
-    maxValue: 1.1947713
+    minValue: 0.52287585
+    maxValue: 1.254902

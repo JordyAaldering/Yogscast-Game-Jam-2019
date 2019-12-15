@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource chantSource;
     public AudioSource effectSource;
+    public AudioSource oreSource;
 
     private float musicVolume = 0.25f;
     private float effectVolume = 0.5f;
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
     {
         effectVolume = volume;
         effectSource.volume = volume;
+        oreSource.volume = volume;
     }
 
     public IEnumerator StartChant()

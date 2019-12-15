@@ -4,6 +4,7 @@ using Environment;
 using MarchingSquares.Stencils;
 using MarchingSquares.Texturing;
 using Player;
+using ScriptableAudio;
 using UnityEngine;
 
 namespace MarchingSquares
@@ -13,6 +14,7 @@ namespace MarchingSquares
     {
         [SerializeField] private Inventory inventory;
         [SerializeField] private TextureData textureData;
+        [SerializeField] private AudioEvent[] oreEffects;
         
         private int resolution;
         private float voxelSize, gridSize;
@@ -362,7 +364,9 @@ namespace MarchingSquares
                 {
                     if (!voxels[i].changed && voxels[i].value >= nonOreLayers)
                     {
-                        inventory.Add(voxels[i].value - nonOreLayers);
+                        int index = voxels[i].value - nonOreLayers;
+                        inventory.Add(index);
+                        oreEffects[index].Play(AudioManager.instance.oreSource);
                     }
 
                     bool prev = voxels[i].state;

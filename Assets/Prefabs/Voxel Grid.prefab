@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: 11400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -7138160247772449058}
+  - component: {fileID: 11400000}
   m_Layer: 8
   m_Name: Voxel Grid
   m_TagString: Untagged
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4db6b19f44744b0180ca4a9d72dc99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 78d80be4a8fc6fa42847e3426afd9f62, type: 2}
-  textureData: {fileID: 11400000, guid: 489a710c6f5542d4280381516604bf7a, type: 2}
-  neighborX: {fileID: 0}
-  neighborY: {fileID: 0}
-  neighborT: {fileID: 0}
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127,3 +110,27 @@ PolygonCollider2D:
       - {x: -0.5877852, y: -0.80901706}
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4db6b19f44744b0180ca4a9d72dc99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 78d80be4a8fc6fa42847e3426afd9f62, type: 2}
+  textureData: {fileID: 11400000, guid: 489a710c6f5542d4280381516604bf7a, type: 2}
+  oreEffects:
+  - {fileID: 11400000, guid: c3243c22512459b40b282bd845d0b0db, type: 2}
+  - {fileID: 11400000, guid: a4398e7689278cc47ac576e1b6e43fd5, type: 2}
+  - {fileID: 11400000, guid: afa1050cc71c1174b9d2edbcf3cbb3b1, type: 2}
+  - {fileID: 11400000, guid: 949f7fe2c914aac498f638f9657065db, type: 2}
+  - {fileID: 11400000, guid: 1a0a283541458f44885df53e16b15e4f, type: 2}
+  - {fileID: 11400000, guid: b5626c01e5dc7764ba6decd1eaf550cb, type: 2}
+  neighborX: {fileID: 0}
+  neighborY: {fileID: 0}
+  neighborT: {fileID: 0}

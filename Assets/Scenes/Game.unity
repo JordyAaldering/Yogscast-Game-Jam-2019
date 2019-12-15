@@ -2810,6 +2810,7 @@ MonoBehaviour:
   runSpeed: 15
   mineRange: 0.28
   origin: {fileID: 814023032}
+  jumpAudioEvent: {fileID: 11400000, guid: b9123db044224f44aa3b5eb090b172c6, type: 2}
   attackAudioEvent: {fileID: 11400000, guid: 1fddc89c4b3e92b4eb1644bc630a6fed, type: 2}
   mineAudioEvent: {fileID: 11400000, guid: eaac7cb31d198bd4b8daf25d2efb26ca, type: 2}
 --- !u!58 &1825491547

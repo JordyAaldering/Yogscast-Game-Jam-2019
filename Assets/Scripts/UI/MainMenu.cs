@@ -28,13 +28,12 @@ namespace UI
 
         public void SetMusicVolume(float value)
         {
-            AudioManager.instance.musicSource.volume = value;
-            AudioManager.instance.chantSource.volume = value;
+            AudioManager.instance.SetMusicVolume(value);
         }
         
         public void SetEffectVolume(float value)
         {
-            AudioManager.instance.effectSource.volume = value;
+            AudioManager.instance.SetEffectVolume(value);
         }
     }
 }

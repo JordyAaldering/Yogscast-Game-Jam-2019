@@ -64,6 +64,15 @@ namespace Player
                 anim.SetTrigger("doAttack");
                 attackAudioEvent.Play(AudioManager.instance.effectSource);
             }
+
+            if (Input.GetButtonDown("Chant"))
+            {
+                StartCoroutine(AudioManager.instance.StartChant());
+            }
+            else if (Input.GetButtonUp("Chant"))
+            {
+                StartCoroutine(AudioManager.instance.EndChant());
+            }
         }
 
         private void FixedUpdate()

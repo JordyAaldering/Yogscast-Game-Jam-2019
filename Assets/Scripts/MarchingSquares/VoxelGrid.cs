@@ -364,7 +364,7 @@ namespace MarchingSquares
             int yEnd = stencil.YEnd;
             if (yEnd >= resolution) yEnd = resolution - 1;
 
-            const int nonOreLayers = 4;
+            const int nonOreLayers = 5;
             for (int y = yStart; y <= yEnd; y++)
             {
                 int i = y * resolution + xStart;

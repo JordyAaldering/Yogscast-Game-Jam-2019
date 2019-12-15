@@ -1,6 +1,8 @@
 #pragma warning disable 0649
+using System.Collections;
 using MarchingSquares;
 using ScriptableAudio;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,6 +15,9 @@ namespace Player
         [SerializeField] private float mineRange = 0.5f;
         [SerializeField] private Transform origin;
 
+        [SerializeField] private float textTime = 5f;
+        [SerializeField] private TextMeshProUGUI dialogue;
+        
         [SerializeField] private AudioEvent jumpAudioEvent;
         [SerializeField] private AudioEvent attackAudioEvent;
         [SerializeField] private AudioEvent mineAudioEvent;
@@ -35,6 +40,14 @@ namespace Player
             controller.OnLandEvent.AddListener(OnLand);
             
             anim = GetComponentInChildren<Animator>();
+
+            StartCoroutine(DisableText());
+        }
+
+        private IEnumerator DisableText()
+        {
+            yield return new WaitForSeconds(textTime);
+            dialogue.gameObject.SetActive(false);
         }
 
         private void Update()

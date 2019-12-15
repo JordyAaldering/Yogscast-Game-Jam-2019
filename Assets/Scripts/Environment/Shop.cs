@@ -10,6 +10,8 @@ namespace Environment
         [SerializeField] private TextMeshProUGUI buyText;
         [SerializeField] private Inventory inventory;
 
+        [SerializeField] private ParticleSystem buyParticle;
+        
         private bool inside, buy;
 
         private void Update()
@@ -29,8 +31,9 @@ namespace Environment
         {
             if (buy && inventory.TryBuy())
             {
-                buyText.text = inventory.GetBuyText();
                 buy = false;
+                buyText.text = inventory.GetBuyText();
+                buyParticle.Play();
             }
         }
 

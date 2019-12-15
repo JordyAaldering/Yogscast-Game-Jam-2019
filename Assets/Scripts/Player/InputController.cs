@@ -21,6 +21,8 @@ namespace Player
         [SerializeField] private AudioEvent jumpAudioEvent;
         [SerializeField] private AudioEvent attackAudioEvent;
         [SerializeField] private AudioEvent mineAudioEvent;
+
+        [SerializeField] private GameObject jumpParticle;
         
         private float horizontalMove = 0f;
         private bool jump = false;
@@ -60,6 +62,7 @@ namespace Player
                 jump = true;
                 anim.SetTrigger("doJump");
                 jumpAudioEvent.Play(AudioManager.instance.effectSource);
+                Instantiate(jumpParticle, controller.groundCheck.position, Quaternion.identity);
             }
 
             if (Input.GetButtonDown("Mine") && !EventSystem.current.IsPointerOverGameObject() &&
@@ -118,6 +121,7 @@ namespace Player
         {
             anim.SetTrigger("doLand");
             jumpAudioEvent.Play(AudioManager.instance.effectSource);
+            Instantiate(jumpParticle, controller.groundCheck.position, Quaternion.identity);
         }
     }
 }

@@ -63,7 +63,11 @@ namespace Player
         private void CheckComplete()
         {
             int diamondIndex = items.Length - 1;
-            FindObjectOfType<CompleteGame>().gameObject.SetActive(items[diamondIndex].amount > 0);
+            
+            Transform complete = FindObjectOfType<CompleteGame>().gameObject.transform;
+            bool active = items[diamondIndex].amount > 0;
+            complete.GetChild(0).gameObject.SetActive(active);
+            complete.GetChild(1).gameObject.SetActive(active);
         }
     }
 

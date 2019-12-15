@@ -11,7 +11,7 @@ namespace Player
         [SerializeField, Range(0f, 0.3f)] private float movementSmoothing = 0.05f;
 
         [SerializeField] private LayerMask whatIsGround;
-        [SerializeField] private Transform groundCheck;
+        public Transform groundCheck;
 
         private bool isGrounded;
         private const float groundedRadius = 0.1f;

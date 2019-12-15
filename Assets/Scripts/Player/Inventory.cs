@@ -1,4 +1,5 @@
 #pragma warning disable 0649
+using System;
 using MarchingSquares;
 using UI;
 using UnityEngine;
@@ -23,6 +24,8 @@ namespace Player
                 map.MaxStencils = tools[_toolLevel].maxStencils;
             }
         }
+        
+        public Action OnPurchase = delegate { };
 
         public void Add(int index)
         {
@@ -56,6 +59,7 @@ namespace Player
             toolLevel++;
             
             CheckComplete();
+            OnPurchase();
             
             return true;
         }

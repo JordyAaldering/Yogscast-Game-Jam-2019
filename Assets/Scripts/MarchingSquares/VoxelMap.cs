@@ -1,4 +1,5 @@
 ﻿#pragma warning disable 0649
+using System;
 using System.Linq;
 using MarchingSquares.Stencils;
 using MarchingSquares.Texturing;
@@ -18,6 +19,10 @@ namespace MarchingSquares
         [SerializeField] private PerlinSettings lodeSettings;
         
         [SerializeField] private VoxelGrid voxelGridPrefab;
+
+        [SerializeField] private Font textFont;
+
+        public Action OnVoxelEdit = delegate { };
         
         private float chunkSize = 1f, voxelSize, halfSize;
         private VoxelGrid[] chunks;
@@ -78,6 +83,8 @@ namespace MarchingSquares
                     chunks[i - chunkResolution - 1].neighborT = chunk;
                 }
             }
+
+            OnVoxelEdit();
         }
 
         public void EditVoxels(Vector3 point)
@@ -123,6 +130,8 @@ namespace MarchingSquares
 
                 voxelYOffset -= voxelResolution;
             }
+
+            OnVoxelEdit();
         }
 
         public int MaxRadius { get; set; } = 2;
@@ -130,12 +139,21 @@ namespace MarchingSquares
         
         private void OnGUI()
         {
-            GUILayout.BeginArea(new Rect(4f, 4f, 150f, 500f));
+            GUI.skin.font = textFont;
+            const int labelSpace = -7;
+            const int itemSpace = -5;
+            
+            GUILayout.BeginArea(new Rect(4f, 4f, 150f, 450f));
             GUILayout.Label("Fill Type");
+            GUILayout.Space(labelSpace);
             fillTypeIndex = GUILayout.SelectionGrid(fillTypeIndex, fillTypeNames, 2);
+            GUILayout.Space(itemSpace);
             GUILayout.Label("Mine Radius");
+            GUILayout.Space(labelSpace);
             radiusIndex = GUILayout.SelectionGrid(radiusIndex, radiusNames.Take(MaxRadius).ToArray(), MaxRadius);
+            GUILayout.Space(itemSpace);
             GUILayout.Label("Mine Shape");
+            GUILayout.Space(labelSpace);
             stencilIndex = GUILayout.SelectionGrid(stencilIndex, stencilNames.Take(MaxStencils).ToArray(), MaxStencils);
             GUILayout.EndArea();
         }

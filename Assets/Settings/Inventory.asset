@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - name: Iron
-    amount: 0
+    amount: 67
   - name: Tin
-    amount: 0
+    amount: 54
   - name: Copper
-    amount: 0
+    amount: 9
   - name: Silver
-    amount: 0
+    amount: 27
   - name: Gold
-    amount: 0
+    amount: 18
   - name: Diamond
     amount: 0
   tools:
@@ -61,4 +61,4 @@ MonoBehaviour:
     costAmount: 3
     maxRadius: 8
     maxStencils: 2
-  _toolLevel: 0
+  _toolLevel: 6

@@ -6,6 +6,8 @@
 *.cs     text diff=csharp
 *.shader text
 
+Assets/TextMesh[[:space:]]Pro/Resources/Shaders/* linguist-vendored
+
 # Unity YAML
 *.mat    merge=unityyamlmerge eol=lf
 *.anim   merge=unityyamlmerge eol=lf

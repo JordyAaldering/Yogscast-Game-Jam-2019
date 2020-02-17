@@ -1,12 +1,7 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-
 # Unity
 *.cginc  text
 *.cs     text diff=csharp
 *.shader text
-
-Assets/TextMesh[[:space:]]Pro/Resources/Shaders/* linguist-vendored
 
 # Unity YAML
 *.mat    merge=unityyamlmerge eol=lf
@@ -22,9 +17,6 @@ Assets/TextMesh[[:space:]]Pro/Resources/Shaders/* linguist-vendored
 *.physicsMaterial merge=unityyamlmerge eol=lf
 *.physicMaterial2D merge=unityyamlmerge eol=lf
 *.physicsMaterial2D merge=unityyamlmerge eol=lf
-
-# Using Git LFS
-# Add diff=lfs merge=lfs to the binary files
 
 # Unity LFS
 *.cubemap binary
@@ -124,3 +116,5 @@ Assets/TextMesh[[:space:]]Pro/Resources/Shaders/* linguist-vendored
 *.meta   linguist-generated
 *.prefab linguist-generated
 *.unity  linguist-generated
+
+Assets/TextMesh[[:space:]]Pro/* -linguist-vendored

@@ -1,7 +1,7 @@
 # Unity
-*.cginc  text
 *.cs     text diff=csharp
-*.shader text
+*.cginc  text diff=csharp
+*.shader text diff=csharp
 
 # Unity YAML
 *.mat    merge=unityyamlmerge eol=lf

@@ -116,5 +116,3 @@
 *.meta   linguist-generated
 *.prefab linguist-generated
 *.unity  linguist-generated
-
-Assets/TextMesh Pro/* linguist-vendored=true

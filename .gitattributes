@@ -118,3 +118,4 @@
 *.unity  linguist-generated
 
 Assets/TextMesh[[:space:]]Pro/* linguist-vendored
+Assets/TextMesh[[:space:]]Pro/* linguist-generated
